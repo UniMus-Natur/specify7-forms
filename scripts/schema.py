@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Backward-compatible wrapper — prefer: specli form …"""
+"""Backward-compatible wrapper — prefer: specli schema …"""
 
 from __future__ import annotations
 
@@ -13,4 +13,4 @@ if str(_ROOT) not in sys.path:
 from specli.main import main
 
 if __name__ == "__main__":
-    raise SystemExit(main(["form", *sys.argv[1:]]))
+    raise SystemExit(main(["schema", *sys.argv[1:]]))

@@ -1,3 +1,12 @@
+Metadata-Version: 2.4
+Name: specli
+Version: 0.1.0
+Summary: Specify 7 forms and schema configuration GitOps CLI
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.28.0
+Requires-Dist: urllib3>=1.26.0
+
 # specify7-forms
 
 Git-tracked Specify 7 **configuration as code** for Unimus: form/view XML and

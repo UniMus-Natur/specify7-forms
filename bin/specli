@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""Backward-compatible wrapper — prefer: specli form …"""
-
-from __future__ import annotations
-
+"""Repo-local specli launcher (no pip install required)."""
 import sys
 from pathlib import Path
 
@@ -12,5 +9,4 @@ if str(_ROOT) not in sys.path:
 
 from specli.main import main
 
-if __name__ == "__main__":
-    raise SystemExit(main(["form", *sys.argv[1:]]))
+raise SystemExit(main())

@@ -3,21 +3,20 @@
 This repository tracks Specify 7 form/view XML and provides scripts to round-trip
 definitions between a Specify instance and git.
 
-Entry point: `scripts/form.py` (wraps `export_specify_forms.py` and `import_specify_forms.py`).
+Entry point: **`specli form`** (wraps `export_specify_forms.py` and `import_specify_forms.py`).
 
 Credentials are read from `.env` in the repository root (see `example.env`).
 
 ## Setup
 
 ```bash
-python3 -m venv .venv
+./install.sh
 source .venv/bin/activate
-pip install -r requirements.txt
 cp example.env .env
 # edit .env with your Specify URL and credentials
 ```
 
-Run commands from the repository root.
+Run commands from the repository root (`specli` on PATH, or `./bin/specli`).
 
 ## Required env vars
 
@@ -37,13 +36,13 @@ Run commands from the repository root.
 Full export (recommended baseline for git history):
 
 ```bash
-python3 scripts/form.py export --clean --output-dir forms
+specli form export --clean --output-dir forms
 ```
 
 XML-focused export (skip per-form manifests):
 
 ```bash
-python3 scripts/form.py export --clean --no-manifests --output-dir forms
+specli form export --clean --no-manifests --output-dir forms
 ```
 
 Behavior:
@@ -62,23 +61,23 @@ Behavior:
 Dry-run:
 
 ```bash
-python3 scripts/form.py plan --forms-dir forms
+specli form plan --forms-dir forms
 ```
 
 Apply changes (discipline viewset example):
 
 ```bash
-python3 scripts/form.py plan --forms-dir forms_all \
+specli form plan --forms-dir forms_all \
   --viewset-name "Karplaner - standard" --source-mode overrides
 
-python3 scripts/form.py import --forms-dir forms_all \
+specli form import --forms-dir forms_all \
   --viewset-name "Karplaner - standard" --source-mode overrides --apply
 ```
 
 Apply with backup of current remote viewset XML:
 
 ```bash
-python3 scripts/form.py import \
+specli form import \
   --forms-dir forms \
   --backup tmp/viewset-backup.xml \
   --apply
@@ -87,8 +86,8 @@ python3 scripts/form.py import \
 Seed a DB viewset with all forms from defaults (IaC bootstrap):
 
 ```bash
-python3 scripts/form.py plan --forms-dir forms --source-mode defaults --create-missing-views
-python3 scripts/form.py import --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml --apply
+specli form plan --forms-dir forms --source-mode defaults --create-missing-views
+specli form import --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml --apply
 ```
 
 Import behavior:
@@ -103,7 +102,7 @@ Import behavior:
 Use `plan` with `--verbose-missing` to print unmapped files (when not using `--create-missing-views`):
 
 ```bash
-python3 scripts/form.py plan --forms-dir forms --verbose-missing
+specli form plan --forms-dir forms --verbose-missing
 ```
 
 ## On-disk layout
@@ -119,9 +118,9 @@ summary.json             # export metadata
 ## Suggested git workflow
 
 1. Export full baseline once:
-   - `python3 scripts/form.py export --clean --no-manifests --output-dir forms`
+   - `specli form export --clean --no-manifests --output-dir forms`
 2. (Optional, one-time) seed DB viewset from defaults:
-   - `python3 scripts/form.py import --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml --apply`
+   - `specli form import --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml --apply`
 3. Commit all XML files (large initial commit).
 4. For each admin edit cycle:
    - Re-export to `forms`
@@ -131,11 +130,21 @@ summary.json             # export metadata
    - Run `plan` first
    - Then run `import --apply`
 
+## Schema configuration (same repo)
+
+Field visibility and labels are **not** in form XML — they live in discipline
+schema config. See [specify_schema_git_sync.md](specify_schema_git_sync.md).
+
+When you add a field to a form, also set `"ishidden": false` for that field in
+`schema/<slug>/schema.en.json` (or export schema after enabling it in UI).
+
 ## Direct script usage
 
 You can also call the underlying scripts:
 
 - `scripts/export_specify_forms.py`
 - `scripts/import_specify_forms.py`
+- `scripts/export_specify_schema.py`
+- `scripts/import_specify_schema.py`
 
-See their module docstrings for flags (same as `form.py` subcommands).
+See their module docstrings for flags (same as `specli form` / `specli schema` subcommands).

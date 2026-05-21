@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.py
+specli/__init__.py
+specli/__main__.py
+specli/main.py
+specli/runner.py
+specli.egg-info/PKG-INFO
+specli.egg-info/SOURCES.txt
+specli.egg-info/dependency_links.txt
+specli.egg-info/entry_points.txt
+specli.egg-info/requires.txt
+specli.egg-info/top_level.txt

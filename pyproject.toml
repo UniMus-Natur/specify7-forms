@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "specli"
+version = "0.1.0"
+description = "Specify 7 forms and schema configuration GitOps CLI"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "requests>=2.28.0",
+  "urllib3>=1.26.0",
+]
+
+[project.scripts]
+specli = "specli.main:main"
+
+[tool.setuptools]
+packages = ["specli"]
