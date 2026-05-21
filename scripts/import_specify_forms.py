@@ -7,6 +7,7 @@ target viewset XML stored in `spappresourcedata`.
 By default this script is a dry run. Use `--apply` to write changes.
 
 Usage:
+  python3 scripts/form.py plan|import [options]
   python3 scripts/import_specify_forms.py --forms-dir forms
   python3 scripts/import_specify_forms.py --forms-dir forms_all --apply
   python3 scripts/import_specify_forms.py --forms-dir forms_admin_only --apply

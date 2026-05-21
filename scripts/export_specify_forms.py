@@ -14,6 +14,7 @@ definitions grouped by table+view-name, deduplicates by XML content hash, and wr
   forms/<table>/<view_name>/manifest.json
 
 Usage:
+  python3 scripts/form.py export [options]
   python scripts/export_specify_forms.py
   python scripts/export_specify_forms.py --output-dir forms --clean
   python scripts/export_specify_forms.py --collection NHM
