@@ -48,6 +48,7 @@ def run_script(script_stem: str, argv_tail: list[str]) -> None:
 
 
 def load_repo_dotenv() -> None:
+    _ensure_scripts_path()
     from _specify_client import load_dotenv
 
     load_dotenv(REPO_ROOT / ".env")

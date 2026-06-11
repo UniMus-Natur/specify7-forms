@@ -59,6 +59,26 @@
           <cell type="field" id="1" name="elevationAccuracy" uitype="text" />
         </row>
         <row>
+          <cell type="label" labelfor="ve" />
+          <cell type="field" id="ve" name="verbatimElevation" uitype="text" colspan="3" />
+          <cell type="label" labelfor="oeu" />
+          <cell type="field" id="oeu" name="originalElevationUnit" uitype="text" colspan="3" />
+          <cell type="label" labelfor="lla" />
+          <cell type="field" id="lla" name="latLongAccuracy" uitype="text" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" labelfor="l1t" />
+          <cell type="field" id="l1t" name="lat1Text" uitype="text" colspan="3" />
+          <cell type="label" labelfor="lo1t" />
+          <cell type="field" id="lo1t" name="long1Text" uitype="text" colspan="3" />
+          <cell type="label" labelfor="lt1" />
+          <cell type="field" id="lt1" name="text1" uitype="textareabrief" rows="2" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" labelfor="lrm" />
+          <cell type="field" id="lrm" name="remarks" uitype="textareabrief" rows="2" colspan="14" />
+        </row>
+        <row>
           <cell type="separator" label="Plugins" colspan="17" />
         </row>
         <row>

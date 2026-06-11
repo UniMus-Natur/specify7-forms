@@ -1,0 +1,14 @@
+{
+  "collection_id": 5,
+  "collection_name": "NHM-karplanter",
+  "discipline_id": 4,
+  "discipline_name": "Karplanter Moser",
+  "discipline_slug": "botany",
+  "discipline_type": "botany",
+  "exported_at": "2026-06-11T08:33:42.057080+00:00",
+  "field_count": 337,
+  "language": "en",
+  "source": "https://specify-stg.natur.unimus.no",
+  "table_count": 6,
+  "visible_field_count": 116
+}

@@ -55,6 +55,44 @@
           <cell type="field" id="18" name="description" uitype="textareabrief" rows="2" colspan="12" />
         </row>
         <row>
+          <cell type="separator" label="MUSIT fields" colspan="14" />
+        </row>
+        <row>
+          <cell type="label" labelfor="fn" />
+          <cell type="field" id="fn" name="fieldNumber" uitype="text" />
+          <cell type="label" labelfor="ca" />
+          <cell type="field" id="ca" name="countAmt" uitype="text" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" labelfor="t2" />
+          <cell type="field" id="t2" name="text2" uitype="text" />
+          <cell type="label" labelfor="t4" />
+          <cell type="field" id="t4" name="text4" uitype="text" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" labelfor="t5" />
+          <cell type="field" id="t5" name="text5" uitype="text" />
+          <cell type="label" labelfor="t6" />
+          <cell type="field" id="t6" name="text6" uitype="text" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" labelfor="t7" />
+          <cell type="field" id="t7" name="text7" uitype="text" />
+          <cell type="label" labelfor="vis" />
+          <cell type="field" id="vis" name="visibility" uitype="text" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" labelfor="rm" />
+          <cell type="field" id="rm" name="remarks" uitype="textareabrief" rows="2" colspan="12" />
+        </row>
+        <row>
+          <cell type="separator" label="Migration archive" colspan="14" />
+        </row>
+        <row>
+          <cell type="label" labelfor="t3" />
+          <cell type="field" id="t3" name="text3" uitype="textareabrief" rows="4" colspan="12" readonly="true" />
+        </row>
+        <row>
           <cell type="separator" label="Attachments" colspan="14" />
         </row>
         <row>

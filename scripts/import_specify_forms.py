@@ -161,6 +161,24 @@ def _viewdef_key(elem: ET.Element) -> tuple[str, str, str]:
     )
 
 
+# Variant views (Mini, ViewOnly, …) reference shared viewdefs but must not
+# overwrite the canonical form during bulk import (last file wins).
+_VIEWDEF_SKIP_MARKERS = (
+    "Mini",
+    "ViewOnly",
+    "Search",
+    "SubTable",
+    "GridView",
+    "GridViewOnly",
+    "ForGrid",
+)
+
+
+def _should_import_viewdefs(local_view: ET.Element) -> bool:
+    view_name = local_view.attrib.get("name", "")
+    return not any(marker in view_name for marker in _VIEWDEF_SKIP_MARKERS)
+
+
 def _parse_local_form(path: Path) -> tuple[ET.Element, dict[tuple[str, str, str], ET.Element]]:
     root = ET.fromstring(path.read_text(encoding="utf-8"))
     views = root.find("views")
@@ -326,6 +344,9 @@ def _sync_forms_into_viewset(
                 views_root.insert(idx, local_view)
                 remote_by_key[key] = local_view
                 changed_views += 1
+
+        if not _should_import_viewdefs(local_view):
+            local_defs = {}
 
         for d_key, local_def in local_defs.items():
             existing = defs_by_name.get(d_key)
