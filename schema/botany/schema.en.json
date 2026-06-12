@@ -1055,12 +1055,12 @@
         "weblinkname": null
       },
       "stationfieldnumber": {
-        "desc": "Collector Number",
+        "desc": "MUSIT Leg number",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Collector Number",
+        "name": "Collector no (Leg)",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
@@ -1099,12 +1099,12 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Text1",
+        "desc": "MUSIT ecology / habitat description",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text1",
+        "name": "Habitat / Ecology",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -1354,12 +1354,12 @@
         "weblinkname": null
       },
       "catalogeddate": {
-        "desc": "Date the object was cataloged.",
+        "desc": "MUSIT registration date",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Cataloged Date",
+        "name": "Reg date",
         "picklistname": null,
         "type": "java.util.Calendar",
         "weblinkname": null
@@ -1596,12 +1596,12 @@
         "weblinkname": null
       },
       "date1": {
-        "desc": "Date1",
+        "desc": "MUSIT approval date",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Date1",
+        "name": "Approved date",
         "picklistname": null,
         "type": "java.util.Calendar",
         "weblinkname": null
@@ -2102,13 +2102,13 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Phenology",
+        "desc": "Object origin/state",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Phenology",
-        "picklistname": "Phenology",
+        "name": "Object origin/state",
+        "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
@@ -2179,12 +2179,12 @@
         "weblinkname": null
       },
       "text8": {
-        "desc": "Text8",
+        "desc": "MUSIT registration/approval audit",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text8",
+        "name": "Administrative (MUSIT)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -2289,34 +2289,34 @@
         "weblinkname": null
       },
       "yesno1": {
-        "desc": "User definable.",
+        "desc": "MUSIT registered flag",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No1",
+        "name": "Registered",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null
       },
       "yesno2": {
-        "desc": "User definable.",
+        "desc": "MUSIT corrected flag",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No2",
+        "name": "Corrected",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null
       },
       "yesno3": {
-        "desc": "User definable.",
+        "desc": "MUSIT approved flag",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No3",
+        "name": "Approved",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null
@@ -2551,7 +2551,7 @@
   "determination": {
     "aggregator": null,
     "defaultui": null,
-    "desc": "Sometimes referred to as an \u2018Identification\u2019, this record captures the taxonomic name assigned to a Collection Object. It includes data such as the determiner (the person who identified it), the date it was determined, confidence qualifiers (like \u201ccf.\u201d or \u201c?\u201d), type statuses, and remarks. A single Collection Object can have a history of many Determinations over time.",
+    "desc": "Sometimes referred to as an ‘Identification’, this record captures the taxonomic name assigned to a Collection Object. It includes data such as the determiner (the person who identified it), the date it was determined, confidence qualifiers (like “cf.” or “?”), type statuses, and remarks. A single Collection Object can have a history of many Determinations over time.",
     "format": null,
     "ishidden": false,
     "isuiformatter": null,
@@ -2920,45 +2920,45 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Classification term",
+        "desc": "MUSIT entered classification term",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Classification term",
+        "name": "Entered taxon name",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text2": {
-        "desc": "Valid classification term",
+        "desc": "MUSIT valid classification term",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Valid classification term",
+        "name": "Valid taxon name",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text3": {
-        "desc": "Text3",
+        "desc": "MUSIT infraspecific rank and name",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text3",
+        "name": "Infraspecific rank and name",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text4": {
-        "desc": "Text4",
+        "desc": "MUSIT sensu term",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text4",
+        "name": "Sensu",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
@@ -3125,7 +3125,7 @@
   "locality": {
     "aggregator": null,
     "defaultui": null,
-    "desc": "Locality records define the \u201cwhere.\u201d They include the specific name of a locale, its geographic coordinates (point, line, or rectangle), the method used to determine latitude/longitude, the datum, and other georeferencing details.",
+    "desc": "Locality records define the “where.” They include the specific name of a locale, its geographic coordinates (point, line, or rectangle), the method used to determine latitude/longitude, the datum, and other georeferencing details.",
     "format": null,
     "ishidden": false,
     "isuiformatter": null,
@@ -3582,12 +3582,12 @@
         "weblinkname": null
       },
       "text2": {
-        "desc": "Text2",
+        "desc": "MUSIT biogeographic region",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text2",
+        "name": "Biogeographic region",
         "picklistname": null,
         "type": "text",
         "weblinkname": null

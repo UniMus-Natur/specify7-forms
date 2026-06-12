@@ -29,6 +29,10 @@
           <cell type="field" id="geography" name="geography" uitype="querycbx" initialize="name=Geography" colspan="14" />
         </row>
         <row>
+          <cell type="label" label="Biogeographic region" labelfor="lt2" />
+          <cell type="field" id="lt2" name="text2" uitype="text" colspan="14" />
+        </row>
+        <row>
           <cell type="label" labelfor="5" />
           <cell type="field" id="5" name="this" uitype="plugin" initialize="name=LatLonUI" colspan="11" />
         </row>

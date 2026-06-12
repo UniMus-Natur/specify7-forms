@@ -19,23 +19,30 @@
       <rowDef auto="true" cell="p" sep="2px" />
       <rows>
         <row>
+          <cell type="separator" label="Object data" colspan="14" />
+        </row>
+        <row>
           <cell type="label" labelfor="1" />
           <cell type="field" id="1" name="catalogNumber" uitype="formattedtext" />
+          <cell type="label" label="Object number" labelfor="fn" />
+          <cell type="field" id="fn" name="fieldNumber" uitype="text" colspan="3" />
+          <cell type="label" label="Sheets #" labelfor="ca" />
+          <cell type="field" id="ca" name="countAmt" uitype="text" />
+        </row>
+        <row>
           <cell type="label" labelfor="3" />
           <cell type="field" id="3" name="accession" uitype="querycbx" initialize="name=AccessionCO;title=AccessionCO" isrequired="false" colspan="3" />
-          <cell type="label" labelfor="14" />
+          <cell type="label" label="Artsobs no" labelfor="14" />
           <cell type="field" id="14" name="altCatalogNumber" uitype="text" />
         </row>
         <row>
-          <cell type="label" labelfor="4" />
-          <cell type="field" id="4" name="cataloger" uitype="querycbx" initialize="name=Agent;title=Catalog Agent" isrequired="true" />
-          <cell type="label" labelfor="5" />
-          <cell type="field" id="5" uitype="plugin" name="this" initialize="name=PartialDateUI;df=catalogedDate;tp=catalogedDatePrecision" uifieldformatter="Date" colspan="3" />
-          <cell type="label" labelfor="2" />
-          <cell type="field" id="2" name="projectNumber" uitype="text" />
+          <cell type="separator" label="Taxon" colspan="14" />
         </row>
         <row>
-          <cell type="subview" viewname="Determination" id="6" name="determinations" colspan="14" rows="5" />
+          <cell type="subview" viewname="Determination" id="6" label="Taxon" name="determinations" colspan="14" rows="5" />
+        </row>
+        <row>
+          <cell type="separator" label="Places &amp; collecting information" colspan="14" />
         </row>
         <row>
           <cell type="subview" viewname="CollectingEventSub" id="21" label="Collection Information" name="collectingEvent" colspan="14" rows="5" />
@@ -44,46 +51,52 @@
           <cell type="subview" viewname="Preparation" id="8" name="preparations" defaulttype="table" colspan="14" rows="3" />
         </row>
         <row>
-          <cell type="separator" label="Attributes" colspan="14" />
+          <cell type="separator" label="Object origin/state &amp; attributes" colspan="14" />
         </row>
         <row>
-          <cell type="label" labelfor="20" />
-          <cell type="field" id="20" name="text1" uitype="combobox" />
+          <cell type="label" label="Object origin/state" labelfor="20" />
+          <cell type="field" id="20" name="text1" uitype="text" colspan="3" />
+          <cell type="label" label="Project" labelfor="t2" />
+          <cell type="field" id="t2" name="text2" uitype="text" />
         </row>
         <row>
-          <cell type="label" labelfor="18" />
+          <cell type="label" label="Specimen description" labelfor="18" />
           <cell type="field" id="18" name="description" uitype="textareabrief" rows="2" colspan="12" />
         </row>
         <row>
-          <cell type="separator" label="MUSIT fields" colspan="14" />
+          <cell type="label" label="Ex herbarium" labelfor="t4" />
+          <cell type="field" id="t4" name="text4" uitype="text" />
+          <cell type="label" label="Voucher" labelfor="t5" />
+          <cell type="field" id="t5" name="text5" uitype="text" colspan="3" />
         </row>
         <row>
-          <cell type="label" labelfor="fn" />
-          <cell type="field" id="fn" name="fieldNumber" uitype="text" />
-          <cell type="label" labelfor="ca" />
-          <cell type="field" id="ca" name="countAmt" uitype="text" colspan="3" />
+          <cell type="label" label="Same sheet as" labelfor="t6" />
+          <cell type="field" id="t6" name="text6" uitype="text" />
+          <cell type="label" label="Analysis request" labelfor="t7" />
+          <cell type="field" id="t7" name="text7" uitype="text" colspan="3" />
         </row>
         <row>
-          <cell type="label" labelfor="t2" />
-          <cell type="field" id="t2" name="text2" uitype="text" />
-          <cell type="label" labelfor="t4" />
-          <cell type="field" id="t4" name="text4" uitype="text" colspan="3" />
-        </row>
-        <row>
-          <cell type="label" labelfor="t5" />
-          <cell type="field" id="t5" name="text5" uitype="text" />
-          <cell type="label" labelfor="t6" />
-          <cell type="field" id="t6" name="text6" uitype="text" colspan="3" />
-        </row>
-        <row>
-          <cell type="label" labelfor="t7" />
-          <cell type="field" id="t7" name="text7" uitype="text" />
-          <cell type="label" labelfor="vis" />
+          <cell type="label" label="Object withheld" labelfor="vis" />
           <cell type="field" id="vis" name="visibility" uitype="text" colspan="3" />
         </row>
         <row>
-          <cell type="label" labelfor="rm" />
-          <cell type="field" id="rm" name="remarks" uitype="textareabrief" rows="2" colspan="12" />
+          <cell type="separator" label="Administrative (MUSIT)" colspan="14" />
+        </row>
+        <row>
+          <cell type="label" label="Workflow" />
+          <cell type="field" id="yn1" name="yesNo1" uitype="checkbox" label="Registered" colspan="3" />
+          <cell type="field" id="yn2" name="yesNo2" uitype="checkbox" label="Corrected" colspan="3" />
+          <cell type="field" id="yn3" name="yesNo3" uitype="checkbox" label="Approved" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" label="Reg date" labelfor="5" />
+          <cell type="field" id="5" uitype="plugin" name="this" initialize="name=PartialDateUI;df=catalogedDate;tp=catalogedDatePrecision" uifieldformatter="Date" colspan="3" />
+          <cell type="label" label="Approved date" labelfor="ds1" />
+          <cell type="field" id="ds1" uitype="plugin" name="this" initialize="name=PartialDateUI;df=date1;tp=date1Precision" uifieldformatter="Date" colspan="3" />
+        </row>
+        <row>
+          <cell type="label" label="Administrative" labelfor="t8" />
+          <cell type="field" id="t8" name="text8" uitype="textareabrief" rows="2" colspan="12" readonly="true" />
         </row>
         <row>
           <cell type="separator" label="Migration archive" colspan="14" />
