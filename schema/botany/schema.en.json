@@ -2256,12 +2256,12 @@
         "weblinkname": null
       },
       "visibility": {
-        "desc": "Object withheld (private)",
+        "desc": "Visibility",
         "format": null,
-        "ishidden": false,
+        "ishidden": true,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Object withheld (private)",
+        "name": "Visibility",
         "picklistname": null,
         "type": "java.lang.Byte",
         "weblinkname": null
@@ -2322,12 +2322,12 @@
         "weblinkname": null
       },
       "yesno4": {
-        "desc": "User definable.",
+        "desc": "MUSIT object withheld flag",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No4",
+        "name": "Withheld",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null

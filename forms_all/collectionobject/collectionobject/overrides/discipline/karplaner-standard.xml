@@ -76,10 +76,6 @@
           <cell type="field" id="t7" name="text7" uitype="text" colspan="3" />
         </row>
         <row>
-          <cell type="label" label="Object withheld" labelfor="vis" />
-          <cell type="field" id="vis" name="visibility" uitype="text" colspan="3" />
-        </row>
-        <row>
           <cell type="separator" label="Administrative (MUSIT)" colspan="14" />
         </row>
         <row>
@@ -87,6 +83,7 @@
           <cell type="field" id="yn1" name="yesNo1" uitype="checkbox" label="Registered" colspan="3" />
           <cell type="field" id="yn2" name="yesNo2" uitype="checkbox" label="Corrected" colspan="3" />
           <cell type="field" id="yn3" name="yesNo3" uitype="checkbox" label="Approved" colspan="3" />
+          <cell type="field" id="yn4" name="yesNo4" uitype="checkbox" label="Withheld" colspan="3" />
         </row>
         <row>
           <cell type="label" label="Reg date" labelfor="5" />
