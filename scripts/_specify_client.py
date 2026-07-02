@@ -195,6 +195,18 @@ def login(
     return s, selected_name, col_id
 
 
+def resolve_specify_user_id(session: requests.Session, base: str, username: str) -> int:
+    """Return ``SpecifyUser.id`` for *username* (logged-in user)."""
+    needle = username.strip().lower()
+    rows = iter_list_endpoint(session, base, f"/api/specify/specifyuser/?limit=300")
+    for row in rows:
+        if (row.get("name") or "").strip().lower() == needle:
+            user_id = row.get("id")
+            if user_id is not None:
+                return int(user_id)
+    sys.exit(f"SpecifyUser not found for username={username!r}")
+
+
 def disable_insecure_request_warnings() -> None:
     try:
         import urllib3

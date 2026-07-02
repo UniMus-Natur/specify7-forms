@@ -1,4 +1,4 @@
-"""specli entry point: `specli form …` and `specli schema …`."""
+"""specli entry point: `specli form …`, `specli schema …`, and `specli weblink …`."""
 
 from __future__ import annotations
 
@@ -53,6 +53,28 @@ def _add_form_commands(sub: argparse._SubParsersAction) -> None:
         action="store_true",
         help="Create missing <view> entries in target viewset",
     )
+
+
+def _add_weblink_commands(sub: argparse._SubParsersAction) -> None:
+    weblink = sub.add_parser("weblink", help="WebLink app-resource sync (WebLinks XML)")
+    cmd = weblink.add_subparsers(dest="cmd", required=True)
+
+    plan = cmd.add_parser("plan", help="Dry-run WebLink merge (no writes)")
+    plan.add_argument("--collection", default=None, help="Specify collection to log into")
+    plan.add_argument(
+        "--asset-collection",
+        default=None,
+        help="Asset-server collection (default: SPECIFY7_ASSET_COLLECTION or NHM-karplanter)",
+    )
+
+    imp = cmd.add_parser("import", help="Merge WebLinks into Specify")
+    imp.add_argument("--collection", default=None, help="Specify collection to log into")
+    imp.add_argument(
+        "--asset-collection",
+        default=None,
+        help="Asset-server collection (default: SPECIFY7_ASSET_COLLECTION or NHM-karplanter)",
+    )
+    imp.add_argument("--apply", action="store_true", help="Write changes (default: dry-run)")
 
 
 def _add_schema_commands(sub: argparse._SubParsersAction) -> None:
@@ -136,6 +158,22 @@ def _dispatch_form(args: argparse.Namespace) -> None:
         return
 
 
+def _dispatch_weblink(args: argparse.Namespace) -> None:
+    argv: list[str] = []
+    if getattr(args, "collection", None):
+        argv += ["--collection", args.collection]
+    if getattr(args, "asset_collection", None):
+        argv += ["--asset-collection", args.asset_collection]
+    if args.cmd == "plan":
+        run_script("import_specify_weblinks", argv)
+        return
+    if args.cmd == "import":
+        if args.apply:
+            argv += ["--apply"]
+        run_script("import_specify_weblinks", argv)
+        return
+
+
 def _dispatch_schema(args: argparse.Namespace) -> None:
     if args.cmd == "export":
         argv = ["--output-dir", args.output_dir, "--lang", args.lang]
@@ -174,7 +212,7 @@ def _dispatch_schema(args: argparse.Namespace) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="specli",
-        description="Specify 7 GitOps CLI — forms (viewsets) and schema configuration",
+        description="Specify 7 GitOps CLI — forms (viewsets), schema configuration, and WebLinks",
     )
     parser.add_argument(
         "--version",
@@ -184,6 +222,7 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="domain", required=True)
     _add_form_commands(sub)
     _add_schema_commands(sub)
+    _add_weblink_commands(sub)
 
     args = parser.parse_args(argv)
     load_repo_dotenv()
@@ -192,6 +231,8 @@ def main(argv: list[str] | None = None) -> int:
         _dispatch_form(args)
     elif args.domain == "schema":
         _dispatch_schema(args)
+    elif args.domain == "weblink":
+        _dispatch_weblink(args)
     else:
         parser.error(f"unknown domain: {args.domain}")
     return 0

@@ -43,10 +43,6 @@
           <cell type="field" id="copyrightDate" name="attachment.copyrightDate" uitype="text" />
         </row>
         <row>
-          <cell type="label" labelfor="attachmentLocation" label="ATTACHMENT_LOCATION" />
-          <cell type="field" id="attachmentLocation" name="attachment.attachmentLocation" uitype="text" />
-        </row>
-        <row>
           <cell type="label" labelfor="isPublic" label="is public" />
           <cell type="field" id="isPublic" name="attachment.isPublic" isrequired="true" uitype="checkbox" />
         </row>
@@ -61,6 +57,10 @@
         <row>
           <cell type="label" labelfor="mimeType" label="MIME_TYPE" />
           <cell type="field" id="mimeType" name="attachment.mimeType" uitype="text" />
+        </row>
+        <row>
+          <cell type="label" labelfor="openPreview" label="Preview (2048px PNG)" />
+          <cell type="field" id="openPreview" name="attachment.attachmentLocation" uitype="plugin" initialize="name=WebLinkButton;weblink=AttachmentPreview2048;icon=Attachments" />
         </row>
         <row>
           <cell type="label" labelfor="remarks" label="REMARKS" />

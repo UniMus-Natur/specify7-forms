@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Merge into Specify App Resource "WebLinks" (discipline scope). -->
+<vector>
+  <weblinkdef>
+    <name>AttachmentPreview2048</name>
+    <tableName>Attachment</tableName>
+    <desc>Open a 2048px PNG preview (asset-server thumbnail) in the browser.</desc>
+    <baseURLStr>/attachment_gw/proxy/?coll={{ASSET_COLLECTION}}&amp;type=T&amp;filename=&lt;this&gt;&amp;scale=2048</baseURLStr>
+    <args>
+      <weblinkdefarg>
+        <name>this</name>
+        <title>Attachment location</title>
+        <isEditable>false</isEditable>
+      </weblinkdefarg>
+    </args>
+    <usedByList>
+      <usedby>
+        <tableName>CollectionObjectAttachment</tableName>
+        <fieldName>attachment.attachmentLocation</fieldName>
+      </usedby>
+      <usedby>
+        <tableName>Attachment</tableName>
+        <fieldName>attachmentLocation</fieldName>
+      </usedby>
+    </usedByList>
+  </weblinkdef>
+</vector>
