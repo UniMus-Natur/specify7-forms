@@ -18,8 +18,6 @@
       <rowDef auto="true" cell="p" sep="2px" />
       <rows>
         <row>
-          <cell type="label" label="Collector no (Leg)" labelfor="1" initialize="visible=false" />
-          <cell type="field" id="1" name="stationFieldNumber" uitype="text" initialize="visible=false" />
           <cell type="label" labelfor="2" />
           <cell type="field" id="2" uitype="plugin" name="this" initialize="name=PartialDateUI;df=startDate;tp=startDatePrecision" uifieldformatter="Date" />
         </row>
