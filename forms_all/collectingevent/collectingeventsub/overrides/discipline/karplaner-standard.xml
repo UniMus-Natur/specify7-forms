@@ -18,8 +18,8 @@
       <rowDef auto="true" cell="p" sep="2px" />
       <rows>
         <row>
-          <cell type="label" labelfor="5" />
-          <cell type="field" id="5" name="stationFieldNumber" uitype="text" />
+          <cell type="label" labelfor="5" initialize="visible=false" />
+          <cell type="field" id="5" name="stationFieldNumber" uitype="text" initialize="visible=false" />
           <cell type="label" labelfor="3" />
           <cell type="field" id="3" name="method" uitype="combobox" />
           <cell type="label" label="" />

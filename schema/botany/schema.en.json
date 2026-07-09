@@ -1055,9 +1055,9 @@
         "weblinkname": null
       },
       "stationfieldnumber": {
-        "desc": "MUSIT Leg number",
+        "desc": "Legacy MUSIT Leg number on collecting event (use CollectionObject.fieldNumber)",
         "format": null,
-        "ishidden": false,
+        "ishidden": true,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Collector no (Leg)",
@@ -1750,12 +1750,12 @@
         "weblinkname": null
       },
       "fieldnumber": {
-        "desc": "Identifier number",
+        "desc": "Collector field number (MUSIT Leg Nr)",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Identifier number",
+        "name": "Leg no",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
@@ -1772,12 +1772,12 @@
         "weblinkname": null
       },
       "integer1": {
-        "desc": "Integer1",
+        "desc": "MUSIT catalog sequence without prefix (IDENTIFIER_NUM)",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Integer1",
+        "name": "Object number",
         "picklistname": null,
         "type": "java.lang.Integer",
         "weblinkname": null
