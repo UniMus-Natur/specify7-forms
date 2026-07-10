@@ -39,15 +39,13 @@
         <row>
           <cell type="label" labelfor="2" />
           <cell type="field" id="2" name="datum" uitype="text" colspan="3" />
-          <cell type="label" label="" />
+          <cell type="label" labelfor="lla" />
+          <cell type="field" id="lla" name="latLongAccuracy" uitype="text" colspan="3" />
           <cell type="label" labelfor="6" />
           <cell type="field" id="6" name="latLongMethod" uitype="text" colspan="3" />
         </row>
         <row>
           <cell type="subview" id="7" name="geoCoordDetails" viewname="GeoCoordDetail" colspan="17" />
-        </row>
-        <row>
-          <cell type="subview" id="8" name="localityDetails" viewname="LocalityDetail" colspan="17" />
         </row>
         <row>
           <cell type="separator" label="Elevation" colspan="17" />
@@ -67,8 +65,6 @@
           <cell type="field" id="ve" name="verbatimElevation" uitype="text" colspan="3" />
           <cell type="label" labelfor="oeu" />
           <cell type="field" id="oeu" name="originalElevationUnit" uitype="text" colspan="3" />
-          <cell type="label" labelfor="lla" />
-          <cell type="field" id="lla" name="latLongAccuracy" uitype="text" colspan="3" />
         </row>
         <row>
           <cell type="label" labelfor="l1t" />

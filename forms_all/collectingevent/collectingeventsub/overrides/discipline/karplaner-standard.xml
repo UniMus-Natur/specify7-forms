@@ -36,6 +36,10 @@
           <cell type="field" id="4" name="locality" uitype="querycbx" initialize="name=Locality;title=Locality;clonebtn=true" colspan="10" />
         </row>
         <row>
+          <cell type="label" labelfor="lla" />
+          <cell type="field" id="lla" name="locality.latLongAccuracy" uitype="text" colspan="3" readonly="true" />
+        </row>
+        <row>
           <cell type="label" labelfor="vl" />
           <cell type="field" id="vl" name="verbatimLocality" uitype="textareabrief" rows="2" colspan="10" />
         </row>

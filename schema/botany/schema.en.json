@@ -3285,12 +3285,12 @@
         "weblinkname": null
       },
       "latlongaccuracy": {
-        "desc": "radius -- in meters or decimal degrees",
+        "desc": "Coordinate uncertainty radius in meters (MUSIT PRECISION)",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Latitude/Longitude Accuracy",
+        "name": "Coord precision (m)",
         "picklistname": null,
         "type": "java.math.BigDecimal",
         "weblinkname": null
