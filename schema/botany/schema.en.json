@@ -3153,13 +3153,13 @@
         "weblinkname": null
       },
       "datum": {
-        "desc": "GPS Datum.",
+        "desc": "Geodetic datum for decimal coordinates (MUSIT DATUM).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Datum",
-        "picklistname": null,
+        "picklistname": "LocalityDatum",
         "type": "java.lang.String",
         "weblinkname": null
       },
