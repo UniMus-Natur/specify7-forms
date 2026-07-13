@@ -1,6 +1,6 @@
 {
   "name": "BiogeographicRegion",
-  "description": "MUSIT biogeographic regions (old Norwegian fylker). Source: MUSIT_NATHIST_FELLES.BIO_GEOGRAFISK_REGION.BIO_GEO_REGION via PLACE_BIO_GEOGRAFISK_REGION. Migrated to Locality.text2.",
+  "description": "Norwegian biogeographic zones (MUSIT legacy fylker, pre-2020 reform). Not current county names.",
   "source_query": "SELECT bio_geo_region FROM MUSIT_NATHIST_FELLES.bio_geografisk_region ORDER BY bio_geo_region",
   "values": [
     "Aust-Agder",

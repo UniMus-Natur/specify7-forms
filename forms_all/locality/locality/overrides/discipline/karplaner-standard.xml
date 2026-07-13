@@ -29,7 +29,7 @@
           <cell type="field" id="geography" name="geography" uitype="querycbx" initialize="name=Geography" colspan="14" />
         </row>
         <row>
-          <cell type="label" label="Biogeographic region" labelfor="lt2" />
+          <cell type="label" label="Norwegian biogeographic zone" labelfor="lt2" />
           <cell type="field" id="lt2" name="text2" uitype="combobox" picklist="BiogeographicRegion" colspan="14" />
         </row>
         <row>

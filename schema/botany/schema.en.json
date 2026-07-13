@@ -3582,12 +3582,12 @@
         "weblinkname": null
       },
       "text2": {
-        "desc": "MUSIT biogeographic region (old Norwegian fylke vocabulary).",
+        "desc": "Norwegian biogeographic zone (MUSIT legacy fylke vocabulary; not current county names).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Biogeographic region",
+        "name": "Norwegian biogeographic zone",
         "picklistname": "BiogeographicRegion",
         "type": "text",
         "weblinkname": null
