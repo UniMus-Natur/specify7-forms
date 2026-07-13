@@ -30,7 +30,7 @@
         </row>
         <row>
           <cell type="label" label="Biogeographic region" labelfor="lt2" />
-          <cell type="field" id="lt2" name="text2" uitype="text" colspan="14" />
+          <cell type="field" id="lt2" name="text2" uitype="combobox" picklist="BiogeographicRegion" colspan="14" />
         </row>
         <row>
           <cell type="label" labelfor="5" />

@@ -1,0 +1,25 @@
+{
+  "name": "BiogeographicRegion",
+  "description": "MUSIT biogeographic regions (old Norwegian fylker). Source: MUSIT_NATHIST_FELLES.BIO_GEOGRAFISK_REGION.BIO_GEO_REGION via PLACE_BIO_GEOGRAFISK_REGION. Migrated to Locality.text2.",
+  "source_query": "SELECT bio_geo_region FROM MUSIT_NATHIST_FELLES.bio_geografisk_region ORDER BY bio_geo_region",
+  "values": [
+    "Aust-Agder",
+    "Buskerud",
+    "Finnmark",
+    "Hedmark",
+    "Hordaland",
+    "Møre og Romsdal",
+    "Nord-Trøndelag",
+    "Nordland",
+    "Oppland",
+    "Oslo og Akershus",
+    "Rogaland",
+    "Sogn og Fjordane",
+    "Sør-Trøndelag",
+    "Telemark",
+    "Troms",
+    "Vest-Agder",
+    "Vestfold",
+    "Østfold"
+  ]
+}

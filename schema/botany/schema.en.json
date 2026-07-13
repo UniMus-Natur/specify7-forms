@@ -3582,13 +3582,13 @@
         "weblinkname": null
       },
       "text2": {
-        "desc": "MUSIT biogeographic region",
+        "desc": "MUSIT biogeographic region (old Norwegian fylke vocabulary).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Biogeographic region",
-        "picklistname": null,
+        "picklistname": "BiogeographicRegion",
         "type": "text",
         "weblinkname": null
       },
