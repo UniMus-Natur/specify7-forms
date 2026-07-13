@@ -3725,23 +3725,23 @@
         "weblinkname": null
       },
       "yesno1": {
-        "desc": "Yes No1",
+        "desc": "MUSIT CA_UTM: coordinate is approximate (ca.).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No1",
+        "name": "Ca coordinate",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null
       },
       "yesno2": {
-        "desc": "Yes No2",
+        "desc": "MUSIT UTM_SENERE: coordinate was added later.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No2",
+        "name": "Coordinate added later",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null

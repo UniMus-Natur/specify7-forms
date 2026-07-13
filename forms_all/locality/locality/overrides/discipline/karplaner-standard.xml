@@ -45,6 +45,10 @@
           <cell type="field" id="6" name="latLongMethod" uitype="text" colspan="3" />
         </row>
         <row>
+          <cell type="field" id="ync" name="yesno1" uitype="checkbox" label="Ca coordinate" colspan="3" />
+          <cell type="field" id="ynl" name="yesno2" uitype="checkbox" label="Coordinate added later" colspan="3" />
+        </row>
+        <row>
           <cell type="subview" id="7" name="geoCoordDetails" viewname="GeoCoordDetail" colspan="17" />
         </row>
         <row>

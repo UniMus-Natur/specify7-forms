@@ -36,6 +36,10 @@
           <cell type="label" label="Norwegian biogeographic zone" labelfor="lt2" />
           <cell type="field" id="lt2" name="text2" uitype="combobox" picklist="BiogeographicRegion" colspan="6" />
         </row>
+        <row>
+          <cell type="field" id="ync" name="yesno1" uitype="checkbox" label="Ca coordinate" colspan="3" />
+          <cell type="field" id="ynl" name="yesno2" uitype="checkbox" label="Coordinate added later" colspan="3" />
+        </row>
       </rows>
     </viewdef>
   </viewdefs>
