@@ -3593,34 +3593,34 @@
         "weblinkname": null
       },
       "text3": {
-        "desc": "Text3",
+        "desc": "MGRS / grid reference from MUSIT (verbatim).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text3",
+        "name": "MGRS",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text4": {
-        "desc": "Text4",
+        "desc": "Migration coordinate audit JSON (hidden).",
         "format": null,
         "ishidden": true,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text4",
+        "name": "Coordinate audit (migration)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text5": {
-        "desc": "Text5",
+        "desc": "UTM coordinates as GeoJSON Feature (easting/northing; optional high corner for grid cell).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text5",
+        "name": "UTM (GeoJSON)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null

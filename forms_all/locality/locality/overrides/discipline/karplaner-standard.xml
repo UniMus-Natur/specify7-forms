@@ -79,6 +79,14 @@
           <cell type="field" id="lt1" name="text1" uitype="textareabrief" rows="2" colspan="3" />
         </row>
         <row>
+          <cell type="label" label="MGRS" labelfor="lt3" />
+          <cell type="field" id="lt3" name="text3" uitype="text" colspan="6" />
+        </row>
+        <row>
+          <cell type="label" label="UTM (GeoJSON)" labelfor="lt5" />
+          <cell type="field" id="lt5" name="text5" uitype="textareabrief" rows="2" colspan="14" readonly="true" />
+        </row>
+        <row>
           <cell type="label" labelfor="lrm" />
           <cell type="field" id="lrm" name="remarks" uitype="textareabrief" rows="2" colspan="14" />
         </row>
