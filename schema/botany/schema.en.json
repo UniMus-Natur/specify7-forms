@@ -3747,12 +3747,12 @@
         "weblinkname": null
       },
       "yesno3": {
-        "desc": "Yes No3",
+        "desc": "MUSIT CA_ALTITUDE: elevation is approximate (ca.).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No3",
+        "name": "Ca altitude",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null

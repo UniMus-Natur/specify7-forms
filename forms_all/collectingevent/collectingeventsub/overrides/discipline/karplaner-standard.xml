@@ -62,6 +62,7 @@
         <row>
           <cell type="field" id="ync" name="locality.yesno1" uitype="checkbox" label="Ca coordinate" colspan="3" />
           <cell type="field" id="ynl" name="locality.yesno2" uitype="checkbox" label="Coordinate added later" colspan="3" />
+          <cell type="field" id="yna" name="locality.yesno3" uitype="checkbox" label="Ca altitude" colspan="3" />
         </row>
         <row>
           <cell type="label" labelfor="vl" />
