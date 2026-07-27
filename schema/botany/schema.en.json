@@ -2003,12 +2003,12 @@
         "weblinkname": null
       },
       "remarks": {
-        "desc": "Notes and audit",
+        "desc": "MUSIT administrative notes, audit trail, and UUID",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Notes and audit",
+        "name": "Adm note",
         "picklistname": null,
         "type": "text",
         "weblinkname": null

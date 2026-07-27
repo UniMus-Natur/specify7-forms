@@ -78,6 +78,10 @@
           <cell type="field" id="t7" name="text7" uitype="text" colspan="3" />
         </row>
         <row>
+          <cell type="label" label="Adm note" labelfor="rem" />
+          <cell type="field" id="rem" name="remarks" uitype="textareabrief" rows="3" colspan="12" />
+        </row>
+        <row>
           <cell type="separator" label="Administrative (MUSIT)" colspan="14" />
         </row>
         <row>
