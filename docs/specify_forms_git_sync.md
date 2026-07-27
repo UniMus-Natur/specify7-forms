@@ -138,6 +138,11 @@ schema config. See [specify_schema_git_sync.md](specify_schema_git_sync.md).
 When you add a field to a form, also set `"ishidden": false` for that field in
 `schema/<slug>/schema.en.json` (or export schema after enabling it in UI).
 
+Pick lists referenced by schema or form XML are **not** created by specli — run the
+matching `scripts/ensure_*_picklist.py` script (with `--apply`) before schema/form
+import. Example: `ensure_determination_addendum_picklist.py` for
+`Determination.addendum` / `DeterminationAddendum`.
+
 ## Direct script usage
 
 You can also call the underlying scripts:

@@ -1,0 +1,8 @@
+{
+  "name": "DeterminationAddendum",
+  "description": "Sensu lato / sensu stricto suffix on determination (MUSIT CLASSIFICATION_TERM.SENSU_TERM).",
+  "values": [
+    "s.lat.",
+    "s.str."
+  ]
+}

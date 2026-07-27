@@ -2563,7 +2563,7 @@
         "isrequired": false,
         "isuiformatter": null,
         "name": "Addendum",
-        "picklistname": null,
+        "picklistname": "DeterminationAddendum",
         "type": "java.lang.String",
         "weblinkname": null
       },
@@ -2955,7 +2955,7 @@
       "text4": {
         "desc": "MUSIT sensu term",
         "format": null,
-        "ishidden": false,
+        "ishidden": true,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Sensu",

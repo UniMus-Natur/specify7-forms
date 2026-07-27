@@ -40,8 +40,8 @@
         <row>
           <cell type="label" label="Infraspecific rank and name" labelfor="dt3" />
           <cell type="field" id="dt3" name="text3" uitype="text" colspan="4" />
-          <cell type="label" label="Sensu" labelfor="dt4" />
-          <cell type="field" id="dt4" name="text4" uitype="text" colspan="4" />
+          <cell type="label" labelfor="dt_add" />
+          <cell type="field" id="dt_add" name="addendum" uitype="combobox" picklist="DeterminationAddendum" colspan="4" />
         </row>
         <row>
           <cell type="label" labelfor="7" />
