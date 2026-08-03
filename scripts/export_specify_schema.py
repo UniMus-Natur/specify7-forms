@@ -12,7 +12,7 @@ Optional:
   --split-tables  -> also write tables/<table>.json per table (for smaller diffs)
 
 Usage:
-  python3 scripts/schema.py export --output-dir schema
+  specli schema pull --output-dir schema
   python3 scripts/export_specify_schema.py --output-dir schema --lang en
 """
 

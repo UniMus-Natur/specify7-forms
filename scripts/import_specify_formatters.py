@@ -12,8 +12,8 @@ merged XML so custom formatters persist.
 Dry-run by default. Use ``--apply`` to write.
 
 Usage:
-  specli formatter plan
-  specli formatter import --apply
+  specli formatter status
+  specli formatter push
 """
 
 from __future__ import annotations

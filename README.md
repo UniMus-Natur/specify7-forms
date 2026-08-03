@@ -4,9 +4,13 @@ Git-tracked Specify 7 **configuration as code** for Unimus: form/view XML,
 discipline schema configuration (field visibility, labels, required flags),
 WebLinks, and UI field formatters.
 
-Specify ships UI export for schema and **no** official import/GitOps tooling; this
-repo provides `export` / `plan` / `import` for forms and schema via the public API,
-plus merge/upsert for WebLinks and UIFormatters.
+`specli` talks to Specify with git-style verbs:
+
+| Command | Direction | Was |
+|---------|-----------|-----|
+| `pull` | Specify → git | `export` |
+| `push` | git → Specify | `import --apply` |
+| `status` | dry-run push | `plan` |
 
 ## Quick start
 
@@ -23,28 +27,30 @@ If a previous `pip install -e .` failed, remove the broken venv first: `rm -rf .
 No install (works immediately):
 
 ```bash
-./bin/specli form export --help
+./bin/specli form pull --help
 ```
 
 ```bash
 # Forms (viewsets)
-specli form export --clean --no-manifests --output-dir forms
-specli form plan --forms-dir forms
-specli form import --forms-dir forms --apply
+specli form pull --clean --no-manifests --output-dir forms
+specli form status --forms-dir forms
+specli form push --forms-dir forms
 
 # Schema (per-discipline field config — one JSON file, not hundreds)
-specli schema export --clean --output-dir schema
-specli schema plan --schema-dir schema
-specli schema import --schema-dir schema --apply
+specli schema pull --clean --output-dir schema
+specli schema status --schema-dir schema
+specli schema push --schema-dir schema
 
 # UI field formatters (UIFormatters app resource — run before schema that references them)
-specli formatter plan
-specli formatter import --apply
+specli formatter status
+specli formatter push
 
 # WebLinks
-specli weblink plan
-specli weblink import --apply
+specli weblink status
+specli weblink push
 ```
+
+`push --dry-run` is the same as `status`. Legacy `export` / `import` / `plan` aliases still work.
 
 ## Documentation
 
@@ -59,14 +65,14 @@ specli weblink import --apply
 | `specli` (package) / `bin/specli` | CLI entry point |
 | `scripts/form.py` | Thin wrapper → `specli form` |
 | `scripts/schema.py` | Thin wrapper → `specli schema` |
-| `scripts/export_specify_forms.py` | Export view XML from Specify |
-| `scripts/import_specify_forms.py` | Import view XML into DB viewsets |
-| `scripts/export_specify_schema.py` | Export schema localization JSON |
-| `scripts/import_specify_schema.py` | Import schema into `SpLocaleContainer*` |
-| `scripts/import_specify_formatters.py` | Upsert UIFormatters XML |
-| `scripts/import_specify_weblinks.py` | Merge WebLinks XML |
+| `scripts/export_specify_forms.py` | Pull view XML from Specify |
+| `scripts/import_specify_forms.py` | Push view XML into DB viewsets |
+| `scripts/export_specify_schema.py` | Pull schema localization JSON |
+| `scripts/import_specify_schema.py` | Push schema into `SpLocaleContainer*` |
+| `scripts/import_specify_formatters.py` | Push UIFormatters XML |
+| `scripts/import_specify_weblinks.py` | Push WebLinks XML |
 | `forms/` / `forms_all/` | Form XML trees |
-| `schema/` | Schema JSON per discipline (created by export) |
+| `schema/` | Schema JSON per discipline (created by pull) |
 | `resources/formatters/` | UIFormatter extension fragments |
 | `resources/weblinks/` | WebLink extension fragments |
 | `example.env` | Template for `.env` credentials |

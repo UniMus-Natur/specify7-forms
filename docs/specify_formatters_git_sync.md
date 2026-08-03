@@ -8,7 +8,7 @@ the definition itself must exist in `UIFormatters`.
 `specli formatter` merges git-tracked fragments into that app resource (same idea
 as `specli weblink`).
 
-Entry point: **`specli formatter`** (wraps `import_specify_formatters.py`).
+Entry point: **`specli formatter`** — `status` / `push` (wraps `import_specify_formatters.py`).
 
 ## Setup
 
@@ -24,10 +24,10 @@ cp example.env .env
 
 ```bash
 # Dry-run: what would be added/updated?
-specli formatter plan
+specli formatter status
 
 # Apply to the logged-in collection’s discipline
-specli formatter import --apply
+specli formatter push
 ```
 
 ## On-disk layout
@@ -61,7 +61,7 @@ Example (Norwegian MGRS grid reference on `Locality.text3`):
 ```
 
 Then set `"format": "GridRefMGRS"` on the field in schema JSON and run
-`specli schema import --apply`.
+`specli schema push`.
 
 ## Semantics
 
@@ -78,9 +78,9 @@ therefore starts from the currently served XML (backstop or DB) before upserting
 
 ## Recommended order
 
-1. `specli formatter import --apply` — definitions exist
-2. `specli schema import --apply` — fields point at formatter names
-3. `specli form import --apply` — labels / layout
+1. `specli formatter push` — definitions exist
+2. `specli schema push` — fields point at formatter names
+3. `specli form push` — labels / layout
 
 ## Limits (v1)
 

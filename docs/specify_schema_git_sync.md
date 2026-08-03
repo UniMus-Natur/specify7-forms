@@ -4,8 +4,7 @@ Schema configuration controls which datamodel fields are visible, required, labe
 and how they behave (pick lists, formats). In Specify this lives in
 `SpLocaleContainer` / `SpLocaleContainerItem` per **discipline** — not in form XML.
 
-This repo syncs that config the same way as forms: **export** (instance → git),
-**plan** (dry-run), **import --apply** (git → instance).
+This repo syncs that config the same way as forms: **pull** (Specify → git), **status** (dry-run), **push** (git → Specify).
 
 ## Why so many entries?
 
@@ -42,17 +41,17 @@ cp example.env .env
 
 ```bash
 # Export full discipline schema (GitOps baseline)
-specli schema export --output-dir schema --clean
+specli schema pull --output-dir schema --clean
 
 # Dry-run: what would change on the server?
-specli schema plan --schema-dir schema
+specli schema status --schema-dir schema
 
 # Apply git state to Specify
-specli schema import --schema-dir schema --apply
+specli schema push --schema-dir schema
 
 # Only sync tables you care about (smaller PRs)
-specli schema export --only-tables accession,collectionobject --output-dir schema
-specli schema import --schema-dir schema --only-tables accession,collectionobject --apply
+specli schema pull --only-tables accession,collectionobject --output-dir schema
+specli schema push --schema-dir schema --only-tables accession,collectionobject
 ```
 
 ## On-disk layout
@@ -73,10 +72,10 @@ field name with `ishidden`, `isrequired`, `name`, `desc`, `picklistname`, etc.
 
 ## GitOps workflow
 
-1. **Bootstrap:** `schema.py export --clean` → commit `schema/<slug>/`.
+1. **Bootstrap:** `specli schema pull --clean` → commit `schema/<slug>/`.
 2. **Edit in git:** change `ishidden`, labels, `isrequired` in JSON (or use UI then re-export).
-3. **Promote:** `plan` on staging → `import --apply` → same on prod.
-4. **Revert:** `git revert` + `import --apply`.
+3. **Promote:** `status` on staging → `push` → same on prod.
+4. **Revert:** `git revert` + `push`.
 
 Keep **forms** (`forms/`) and **schema** (`schema/`) in sync when adding fields to
 forms: enable the field in schema (`ishidden: false`) and add the cell in form XML.

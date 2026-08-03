@@ -3,7 +3,7 @@
 This repository tracks Specify 7 form/view XML and provides scripts to round-trip
 definitions between a Specify instance and git.
 
-Entry point: **`specli form`** (wraps `export_specify_forms.py` and `import_specify_forms.py`).
+Entry point: **`specli form`** — `pull` / `status` / `push` (wraps `export_specify_forms.py` and `import_specify_forms.py`).
 
 Credentials are read from `.env` in the repository root (see `example.env`).
 
@@ -27,22 +27,26 @@ Run commands from the repository root (`specli` on PATH, or `./bin/specli`).
 
 ## Commands
 
-- `export` — pull forms from Specify to files
-- `plan` — dry-run sync plan from files to Specify
-- `import` — apply files to Specify (only with `--apply`)
+| Command | Direction |
+|---------|-----------|
+| `pull` | Specify → git |
+| `status` | dry-run push |
+| `push` | git → Specify |
 
-## Export forms from Specify to git
+Legacy aliases: `export` / `plan` / `import` (import still needs `--apply` to write).
 
-Full export (recommended baseline for git history):
+## Pull forms from Specify to git
+
+Full pull (recommended baseline for git history):
 
 ```bash
-specli form export --clean --output-dir forms
+specli form pull --clean --output-dir forms
 ```
 
-XML-focused export (skip per-form manifests):
+XML-focused pull (skip per-form manifests):
 
 ```bash
-specli form export --clean --no-manifests --output-dir forms
+specli form pull --clean --no-manifests --output-dir forms
 ```
 
 Behavior:
@@ -53,56 +57,55 @@ Behavior:
 - Writes non-baseline variants under `overrides/<level>/<viewset-name>.xml`.
 - Always writes top-level `summary.json`.
 
-## Plan and import forms from git to Specify
+## Status and push forms from git to Specify
 
-`plan` is always dry-run.  
-`import` is dry-run unless `--apply` is provided.
+`status` is always dry-run.  
+`push` writes unless `--dry-run` is set.
 
 Dry-run:
 
 ```bash
-specli form plan --forms-dir forms
+specli form status --forms-dir forms
 ```
 
 Apply changes (discipline viewset example):
 
 ```bash
-specli form plan --forms-dir forms_all \
+specli form status --forms-dir forms_all \
   --viewset-name "Karplaner - standard" --source-mode overrides
 
-specli form import --forms-dir forms_all \
-  --viewset-name "Karplaner - standard" --source-mode overrides --apply
+specli form push --forms-dir forms_all \
+  --viewset-name "Karplaner - standard" --source-mode overrides
 ```
 
 Apply with backup of current remote viewset XML:
 
 ```bash
-specli form import \
+specli form push \
   --forms-dir forms \
-  --backup tmp/viewset-backup.xml \
-  --apply
+  --backup tmp/viewset-backup.xml
 ```
 
 Seed a DB viewset with all forms from defaults (IaC bootstrap):
 
 ```bash
-specli form plan --forms-dir forms --source-mode defaults --create-missing-views
-specli form import --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml --apply
+specli form status --forms-dir forms --source-mode defaults --create-missing-views
+specli form push --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml
 ```
 
-Import behavior:
+Push behavior:
 
 - Logs into Specify with collection context.
 - Targets one viewset (auto-discovered from `/context/views.json`, or `--viewset-name`).
 - Loads current remote XML from `spappresourcedata`.
 - Replaces matching `<view>` and `<viewdef>` entries from local XML files.
 - Can create missing `<view>` entries when `--create-missing-views` is enabled.
-- PUTs updated `spappresourcedata` only when `--apply` is set and content changed.
+- PUTs updated `spappresourcedata` only when content changed.
 
-Use `plan` with `--verbose-missing` to print unmapped files (when not using `--create-missing-views`):
+Use `status` with `--verbose-missing` to print unmapped files (when not using `--create-missing-views`):
 
 ```bash
-specli form plan --forms-dir forms --verbose-missing
+specli form status --forms-dir forms --verbose-missing
 ```
 
 ## On-disk layout
@@ -112,23 +115,23 @@ forms/<table>/<view_name>/
   default.xml
   overrides/<level>/<viewset-slug>.xml
   manifest.json          # optional
-summary.json             # export metadata
+summary.json             # pull metadata
 ```
 
 ## Suggested git workflow
 
-1. Export full baseline once:
-   - `specli form export --clean --no-manifests --output-dir forms`
+1. Pull full baseline once:
+   - `specli form pull --clean --no-manifests --output-dir forms`
 2. (Optional, one-time) seed DB viewset from defaults:
-   - `specli form import --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml --apply`
+   - `specli form push --forms-dir forms --source-mode defaults --create-missing-views --backup tmp/viewset-before-seed.xml`
 3. Commit all XML files (large initial commit).
 4. For each admin edit cycle:
-   - Re-export to `forms`
+   - Re-pull to `forms`
    - Review git diff
    - Commit XML changes
 5. Push local XML back when needed:
-   - Run `plan` first
-   - Then run `import --apply`
+   - Run `status` first
+   - Then run `push`
 
 ## Schema configuration (same repo)
 
@@ -140,12 +143,12 @@ When you add a field to a form, also set `"ishidden": false` for that field in
 
 Pick lists referenced by schema or form XML are **not** created by specli — run the
 matching `scripts/ensure_*_picklist.py` script (with `--apply`) before schema/form
-import. Example: `ensure_determination_addendum_picklist.py` for
+push. Example: `ensure_determination_addendum_picklist.py` for
 `Determination.addendum` / `DeterminationAddendum`.
 
 UI field formatters (`format` on schema fields) are managed by
-[`specli formatter`](specify_formatters_git_sync.md) — apply those **before**
-schema import when adding new formatter names.
+[`specli formatter`](specify_formatters_git_sync.md) — push those **before**
+schema push when adding new formatter names.
 
 ## Direct script usage
 

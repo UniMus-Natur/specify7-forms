@@ -8,8 +8,8 @@ Reads:
 Dry-run by default. Use --apply to write.
 
 Usage:
-  python3 scripts/schema.py plan --schema-dir schema
-  python3 scripts/schema.py import --schema-dir schema --apply
+  specli schema status --schema-dir schema
+  specli schema push --schema-dir schema
 """
 
 from __future__ import annotations

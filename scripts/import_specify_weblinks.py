@@ -8,8 +8,8 @@ any missing definitions by ``name``.  Creates the app resource when missing.
 Dry-run by default. Use ``--apply`` to write.
 
 Usage:
-  specli weblink plan
-  specli weblink import --apply
+  specli weblink status
+  specli weblink push
 """
 
 from __future__ import annotations
