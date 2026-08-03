@@ -9,61 +9,66 @@
     </view>
   </views>
   <viewdefs>
+    <!--
+      6 content columns (label/field × 3). Keep every row’s XML colspan sum ≤ 12
+      (Specify halves colspan for the CSS grid). Oversized rows make Specify append
+      auto columns, so separators/subviews no longer match field-row width.
+    -->
     <viewdef type="form" name="Collection Object" class="edu.ku.brc.specify.datamodel.CollectionObject" gettable="edu.ku.brc.af.ui.forms.DataGetterForObj" settable="edu.ku.brc.af.ui.forms.DataSetterForObj">
       <desc>The Collection Object form.</desc>
       <enableRules />
-      <columnDef>100px,2px,195px,5px,96px,2px,50px,10px,150px,5px,94px,2px,176px,15px,p:g</columnDef>
-      <columnDef os="lnx">115px,2px,195px,5px,125px,2px,60px,10px,140px,5px,125px,2px,181px,15px,p:g</columnDef>
-      <columnDef os="mac">130px,2px,215px,5px,128px,2px,105px,10px,145px,5px,138px,2px,195px,15px,p:g</columnDef>
-      <columnDef os="exp">p,2px,min(p;250px),5px:g,p,2px,p:g(2),10px,p:g(2),5px:g,p,2px,p:g,p,p:g</columnDef>
+      <columnDef>120px,2px,200px,5px,120px,2px,200px,5px,120px,2px,200px,p:g</columnDef>
+      <columnDef os="lnx">120px,2px,200px,5px,120px,2px,200px,5px,120px,2px,200px,p:g</columnDef>
+      <columnDef os="mac">130px,2px,220px,5px,130px,2px,220px,5px,130px,2px,220px,p:g</columnDef>
+      <columnDef os="exp">p,2px,p:g,5px:g,p,2px,p:g,5px:g,p,2px,p:g,p:g</columnDef>
       <rowDef auto="true" cell="p" sep="2px" />
       <rows>
         <row>
-          <cell type="separator" label="Object data" colspan="14" />
+          <cell type="separator" label="Object data" colspan="12" />
         </row>
         <row>
           <cell type="label" labelfor="1" />
-          <cell type="field" id="1" name="catalogNumber" uitype="formattedtext" colspan="3" />
+          <cell type="field" id="1" name="catalogNumber" uitype="formattedtext" />
           <cell type="label" label="Object number" labelfor="onum" />
           <cell type="field" id="onum" name="integer1" uitype="text" />
           <cell type="label" label="Leg no" labelfor="fn" />
           <cell type="field" id="fn" name="fieldNumber" uitype="text" />
-          <cell type="label" label="Sheets #" labelfor="ca" />
-          <cell type="field" id="ca" name="countAmt" uitype="text" />
         </row>
         <row>
+          <cell type="label" label="Sheets #" labelfor="ca" />
+          <cell type="field" id="ca" name="countAmt" uitype="text" />
           <cell type="label" labelfor="3" />
-          <cell type="field" id="3" name="accession" uitype="querycbx" initialize="name=AccessionCO;title=AccessionCO" isrequired="false" colspan="3" />
+          <cell type="field" id="3" name="accession" uitype="querycbx" initialize="name=AccessionCO;title=AccessionCO" isrequired="false" />
           <cell type="label" label="Artsobs no" labelfor="14" />
           <cell type="field" id="14" name="altCatalogNumber" uitype="text" />
         </row>
         <row>
-          <cell type="separator" label="Taxon" colspan="14" />
+          <cell type="separator" label="Taxon" colspan="12" />
         </row>
         <row>
-          <cell type="subview" viewname="Determination" id="6" label="Taxon" name="determinations" colspan="14" rows="5" />
+          <cell type="subview" viewname="Determination" id="6" label="Taxon" name="determinations" colspan="12" rows="5" />
         </row>
         <row>
-          <cell type="separator" label="Places &amp; collecting information" colspan="14" />
+          <cell type="separator" label="Places &amp; collecting information" colspan="12" />
         </row>
         <row>
-          <cell type="subview" viewname="CollectingEventSub" id="21" label="Collection Information" name="collectingEvent" colspan="14" rows="5" />
+          <cell type="subview" viewname="CollectingEventSub" id="21" label="Collection Information" name="collectingEvent" colspan="12" rows="5" />
         </row>
         <row>
-          <cell type="subview" viewname="Preparation" id="8" name="preparations" defaulttype="table" colspan="14" rows="3" />
+          <cell type="subview" viewname="Preparation" id="8" name="preparations" defaulttype="table" colspan="12" rows="3" />
         </row>
         <row>
-          <cell type="separator" label="Object origin/state &amp; attributes" colspan="14" />
+          <cell type="separator" label="Object origin/state &amp; attributes" colspan="12" />
         </row>
         <row>
           <cell type="label" label="Object origin/state" labelfor="20" />
-          <cell type="field" id="20" name="text1" uitype="text" colspan="3" />
+          <cell type="field" id="20" name="text1" uitype="text" />
           <cell type="label" label="Project" labelfor="t2" />
-          <cell type="field" id="t2" name="text2" uitype="text" />
+          <cell type="field" id="t2" name="text2" uitype="text" colspan="3" />
         </row>
         <row>
           <cell type="label" label="Specimen description" labelfor="18" />
-          <cell type="field" id="18" name="description" uitype="textareabrief" rows="2" colspan="12" />
+          <cell type="field" id="18" name="description" uitype="textareabrief" rows="2" colspan="10" />
         </row>
         <row>
           <cell type="label" label="Ex herbarium" labelfor="t4" />
@@ -79,57 +84,56 @@
         </row>
         <row>
           <cell type="label" label="Adm note" labelfor="rem" />
-          <cell type="field" id="rem" name="remarks" uitype="textareabrief" rows="3" colspan="12" />
+          <cell type="field" id="rem" name="remarks" uitype="textareabrief" rows="3" colspan="10" />
         </row>
         <row>
-          <cell type="separator" label="Administrative (MUSIT)" colspan="14" />
+          <cell type="separator" label="Administrative (MUSIT)" colspan="12" />
         </row>
         <row>
-          <cell type="label" label="Workflow" />
-          <cell type="field" id="yn1" name="yesNo1" uitype="checkbox" label="Registered" colspan="3" />
-          <cell type="field" id="yn2" name="yesNo2" uitype="checkbox" label="Corrected" colspan="3" />
-          <cell type="field" id="yn3" name="yesNo3" uitype="checkbox" label="Approved" colspan="3" />
+          <cell type="field" id="yn1" name="yesNo1" uitype="checkbox" label="Registered" />
+          <cell type="field" id="yn2" name="yesNo2" uitype="checkbox" label="Corrected" />
+          <cell type="field" id="yn3" name="yesNo3" uitype="checkbox" label="Approved" />
           <cell type="field" id="yn4" name="yesNo4" uitype="checkbox" label="Withheld" colspan="3" />
         </row>
         <row>
           <cell type="label" label="Reg date" labelfor="5" />
-          <cell type="field" id="5" uitype="plugin" name="this" initialize="name=PartialDateUI;df=catalogedDate;tp=catalogedDatePrecision" uifieldformatter="Date" colspan="3" />
+          <cell type="field" id="5" uitype="plugin" name="this" initialize="name=PartialDateUI;df=catalogedDate;tp=catalogedDatePrecision" uifieldformatter="Date" />
           <cell type="label" label="Approved date" labelfor="ds1" />
           <cell type="field" id="ds1" uitype="plugin" name="this" initialize="name=PartialDateUI;df=date1;tp=date1Precision" uifieldformatter="Date" colspan="3" />
         </row>
         <row>
           <cell type="label" label="Administrative" labelfor="t8" />
-          <cell type="field" id="t8" name="text8" uitype="textareabrief" rows="2" colspan="12" readonly="true" />
+          <cell type="field" id="t8" name="text8" uitype="textareabrief" rows="2" colspan="10" readonly="true" />
         </row>
         <row>
-          <cell type="separator" label="Migration archive" colspan="14" />
+          <cell type="separator" label="Migration archive" colspan="12" />
         </row>
         <row>
           <cell type="label" labelfor="t3" />
-          <cell type="field" id="t3" name="text3" uitype="textareabrief" rows="4" colspan="12" readonly="true" />
+          <cell type="field" id="t3" name="text3" uitype="textareabrief" rows="4" colspan="10" readonly="true" />
         </row>
         <row>
-          <cell type="separator" label="Attachments" colspan="14" />
+          <cell type="separator" label="Attachments" colspan="12" />
         </row>
         <row>
-          <cell type="subview" id="attachments" viewname="ObjectAttachment" name="collectionObjectAttachments" colspan="14" initialize="icon=CollectionObjectAttachment" defaulttype="table" />
+          <cell type="subview" id="attachments" viewname="ObjectAttachment" name="collectionObjectAttachments" colspan="12" initialize="icon=CollectionObjectAttachment" defaulttype="table" />
         </row>
         <row>
-          <cell type="separator" label="Record summary" colspan="14" />
+          <cell type="separator" label="Record summary" colspan="12" />
         </row>
         <row>
           <cell type="label" label="Total Items:" />
           <cell type="field" id="tq" name="totalCountAmt" uitype="text" readonly="true" />
           <cell type="label" label="Total Current Items:" />
-          <cell type="field" id="ti" name="actualTotalCountAmt" uitype="text" readonly="true" colspan="3" />
+          <cell type="field" id="ti" name="actualTotalCountAmt" uitype="text" readonly="true" />
           <cell type="label" labelfor="11" />
-          <cell type="field" id="11" name="timestampModified" uitype="label" readonly="true" colspan="3" />
+          <cell type="field" id="11" name="timestampModified" uitype="label" readonly="true" />
         </row>
         <row>
           <cell type="label" labelfor="10" />
-          <cell type="field" id="10" name="modifiedByAgent" uitype="label" readonly="true" uifieldformatter="Agent" colspan="5" />
+          <cell type="field" id="10" name="modifiedByAgent" uitype="label" readonly="true" uifieldformatter="Agent" colspan="3" />
           <cell type="label" labelfor="guid" />
-          <cell type="field" id="guid" name="guid" uitype="text" colspan="5" readonly="true" />
+          <cell type="field" id="guid" name="guid" uitype="text" readonly="true" />
         </row>
         <row>
           <cell type="field" id="113" uitype="checkbox" name="generateLabelChk" label="Generate Label on Save" ignore="true" default="true" initialize="visible=false" colspan="3" />

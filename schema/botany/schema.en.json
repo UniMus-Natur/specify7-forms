@@ -3351,7 +3351,7 @@
         "weblinkname": null
       },
       "localitydetails": {
-        "desc": "Locality Details",
+        "desc": "Locality Details (PLSS / township–range–section).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
@@ -3571,12 +3571,12 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Place name (verbatim aggregate)",
+        "desc": "Place name (verbatim aggregate from MUSIT).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Place name (verbatim aggregate)",
+        "name": "Place name (verbatim)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -3587,7 +3587,7 @@
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Norwegian biogeographic zone",
+        "name": "Biogeographic zone",
         "picklistname": "BiogeographicRegion",
         "type": "text",
         "weblinkname": null

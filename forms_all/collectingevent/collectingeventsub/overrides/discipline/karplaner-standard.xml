@@ -11,10 +11,10 @@
   <viewdefs>
     <viewdef type="form" name="CollectingEventSub" class="edu.ku.brc.specify.datamodel.CollectingEvent" gettable="edu.ku.brc.af.ui.forms.DataGetterForObj" settable="edu.ku.brc.af.ui.forms.DataSetterForObj">
       <desc>Collecting Event</desc>
-      <columnDef>100px,2px,210px,5px,75px,2px,210px,5px,90px,2px,186px,0px,p:g</columnDef>
-      <columnDef os="lnx">115px,2px,210px,5px,105px,2px,210px,5px,125px,2px,186px,0px,p:g</columnDef>
-      <columnDef os="mac">130px,2px,260px,5px,85px,2px,260px,5px,115px,2px,216px,0px,p:g</columnDef>
-      <columnDef os="exp">p,2px,p:g,5px:g,p,2px,p:g,5px:g,p,2px,p:g(2),0px</columnDef>
+      <columnDef>120px,2px,200px,5px,120px,2px,200px,5px,120px,2px,200px,p:g</columnDef>
+      <columnDef os="lnx">120px,2px,200px,5px,120px,2px,200px,5px,120px,2px,200px,p:g</columnDef>
+      <columnDef os="mac">130px,2px,220px,5px,130px,2px,220px,5px,130px,2px,220px,p:g</columnDef>
+      <columnDef os="exp">p,2px,p:g,5px:g,p,2px,p:g,5px:g,p,2px,p:g,p:g</columnDef>
       <rowDef auto="true" cell="p" sep="2px" />
       <rows>
         <row>
@@ -36,7 +36,7 @@
           <cell type="field" id="4" name="locality" uitype="querycbx" initialize="name=Locality;title=Locality;clonebtn=true" colspan="10" />
         </row>
         <row>
-          <cell type="label" label="Norwegian biogeographic zone" labelfor="bgr" />
+          <cell type="label" label="Biogeographic zone" labelfor="bgr" />
           <cell type="field" id="bgr" name="locality.text2" uitype="combobox" picklist="BiogeographicRegion" colspan="10" />
         </row>
         <row>

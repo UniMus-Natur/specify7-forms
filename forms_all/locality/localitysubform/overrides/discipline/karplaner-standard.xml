@@ -10,44 +10,56 @@
   </views>
   <viewdefs>
     <viewdef type="form" name="LocalitySubForm" class="edu.ku.brc.specify.datamodel.Locality" gettable="edu.ku.brc.af.ui.forms.DataGetterForObj" settable="edu.ku.brc.af.ui.forms.DataSetterForObj">
-      <desc>Locality SubForm</desc>
+      <desc>Compact where + coordinates (embedded Locality)</desc>
       <columnDef>p,2px,p,10px,p,2px,p,p:g</columnDef>
       <rowDef auto="true" cell="p" sep="2dlu" />
+      <enableRules>
+        <rule id="georef">localityName.isNotEmpty() &amp;&amp; geography.isNotEmpty()</rule>
+      </enableRules>
       <rows>
         <row>
           <cell type="label" labelfor="6" />
           <cell type="field" id="6" name="localityName" uitype="text" colspan="6" />
         </row>
         <row>
+          <cell type="label" labelfor="5" />
+          <cell type="field" id="5" name="geography" uitype="querycbx" initialize="name=Geography" colspan="6" />
+        </row>
+        <row>
+          <cell type="label" label="Biogeographic zone" labelfor="lt2" />
+          <cell type="field" id="lt2" name="text2" uitype="combobox" picklist="BiogeographicRegion" colspan="6" />
+        </row>
+        <row>
+          <cell type="label" label="Place name (verbatim)" labelfor="lt1" />
+          <cell type="field" id="lt1" name="text1" uitype="textareabrief" rows="2" colspan="6" />
+        </row>
+        <row>
           <cell type="label" labelfor="4" />
-          <cell type="field" id="4" name="this" uitype="plugin" initialize="name=LatLonUI" colspan="4" />
+          <cell type="field" id="4" name="this" uitype="plugin" initialize="name=LatLonUI" colspan="6" />
+        </row>
+        <row>
+          <cell type="panel" id="coordTools" name="coordTools" coldef="p,f:p:g,p,f:p:g" rowdef="p" colspan="6">
+            <rows>
+              <row>
+                <cell type="field" id="georef" name="this" uitype="plugin" initialize="name=LocalityGeoRef;title=Geo Ref;geoid=geography;locid=6;llid=4" colspan="1" />
+                <cell type="field" id="ge" name="this" uitype="plugin" initialize="name=LocalityGoogleEarth;title=Google Earth;watch=4" colspan="1" />
+              </row>
+            </rows>
+          </cell>
         </row>
         <row>
           <cell type="label" labelfor="1" />
-          <cell type="field" id="1" name="datum" uitype="text" />
-          <cell type="label" labelfor="2" />
-          <cell type="field" id="2" name="elevationMethod" uitype="text" />
-        </row>
-        <row>
-          <cell type="label" labelfor="5" />
-          <cell type="field" id="5" name="geography" uitype="querycbx" initialize="name=Geography" />
-        </row>
-        <row>
-          <cell type="label" label="Norwegian biogeographic zone" labelfor="lt2" />
-          <cell type="field" id="lt2" name="text2" uitype="combobox" picklist="BiogeographicRegion" colspan="6" />
+          <cell type="field" id="1" name="datum" uitype="combobox" picklist="LocalityDatum" />
+          <cell type="label" labelfor="lla" />
+          <cell type="field" id="lla" name="latLongAccuracy" uitype="text" />
         </row>
         <row>
           <cell type="label" label="Grid ref. (MGRS)" labelfor="lt3" />
           <cell type="field" id="lt3" name="text3" uitype="text" colspan="6" />
         </row>
         <row>
-          <cell type="label" label="UTM (GeoJSON)" labelfor="lt5" />
-          <cell type="field" id="lt5" name="text5" uitype="textareabrief" rows="2" colspan="6" readonly="true" />
-        </row>
-        <row>
           <cell type="field" id="ync" name="yesno1" uitype="checkbox" label="Ca coordinate" colspan="3" />
           <cell type="field" id="ynl" name="yesno2" uitype="checkbox" label="Coordinate added later" colspan="3" />
-          <cell type="field" id="yna" name="yesno3" uitype="checkbox" label="Ca altitude" colspan="3" />
         </row>
       </rows>
     </viewdef>

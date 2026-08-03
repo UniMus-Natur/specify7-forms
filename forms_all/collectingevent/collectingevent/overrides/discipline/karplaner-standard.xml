@@ -26,7 +26,7 @@
           <cell type="field" id="4" name="locality" uitype="querycbx" initialize="name=Locality;title=Locality;clonebtn=true" colspan="6" />
         </row>
         <row>
-          <cell type="label" label="Norwegian biogeographic zone" labelfor="bgr" />
+          <cell type="label" label="Biogeographic zone" labelfor="bgr" />
           <cell type="field" id="bgr" name="locality.text2" uitype="combobox" picklist="BiogeographicRegion" colspan="6" />
         </row>
         <row>
