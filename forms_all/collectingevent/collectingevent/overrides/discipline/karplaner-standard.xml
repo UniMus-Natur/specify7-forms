@@ -36,7 +36,7 @@
           <cell type="field" id="lon1" name="locality.longitude1" uitype="text" colspan="2" readonly="true" />
         </row>
         <row>
-          <cell type="label" label="MGRS" labelfor="mgrs" />
+          <cell type="label" label="Grid ref. (MGRS)" labelfor="mgrs" />
           <cell type="field" id="mgrs" name="locality.text3" uitype="text" colspan="6" readonly="true" />
         </row>
         <row>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Merge into Specify App Resource "UIFormatters" (discipline scope). -->
+<formats>
+  <!--
+    Norwegian MGRS shorthand used in MUSIT O–V data:
+      NM 929,408   PM 02,39   NL 9435,9010
+      PL 354-357,559-561   (rare ranges)
+    Not NATO full MGRS (32VNM929408). Zone/band omitted; comma between axes.
+  -->
+  <format
+    system="false"
+    name="GridRefMGRS"
+    class="edu.ku.brc.specify.datamodel.Locality"
+    fieldname="text3"
+    default="false"
+  >
+    <field
+      type="regex"
+      value="[A-Za-z]{1,3}\s+\d{1,5}(?:-\d{1,5})?\s*,\s*\d{1,6}(?:-\d{1,6})?"
+      pattern="AA 000,000"
+    />
+  </format>
+</formats>

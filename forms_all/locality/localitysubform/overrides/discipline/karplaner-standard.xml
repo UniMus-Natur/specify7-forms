@@ -37,7 +37,7 @@
           <cell type="field" id="lt2" name="text2" uitype="combobox" picklist="BiogeographicRegion" colspan="6" />
         </row>
         <row>
-          <cell type="label" label="MGRS" labelfor="lt3" />
+          <cell type="label" label="Grid ref. (MGRS)" labelfor="lt3" />
           <cell type="field" id="lt3" name="text3" uitype="text" colspan="6" />
         </row>
         <row>

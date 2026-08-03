@@ -80,7 +80,7 @@
           <cell type="field" id="lt1" name="text1" uitype="textareabrief" rows="2" colspan="3" />
         </row>
         <row>
-          <cell type="label" label="MGRS" labelfor="lt3" />
+          <cell type="label" label="Grid ref. (MGRS)" labelfor="lt3" />
           <cell type="field" id="lt3" name="text3" uitype="text" colspan="6" />
         </row>
         <row>

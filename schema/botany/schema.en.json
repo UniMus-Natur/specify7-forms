@@ -3593,12 +3593,12 @@
         "weblinkname": null
       },
       "text3": {
-        "desc": "MGRS / grid reference from MUSIT (verbatim).",
-        "format": null,
+        "desc": "Norwegian MGRS grid reference (verbatim), e.g. NM 929,408.",
+        "format": "GridRefMGRS",
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "MGRS",
+        "name": "Grid ref. (MGRS)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null

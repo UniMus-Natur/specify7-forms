@@ -1,9 +1,8 @@
-"""specli entry point: `specli form …`, `specli schema …`, and `specli weblink …`."""
+"""specli entry point: `specli form|schema|weblink|formatter …`."""
 
 from __future__ import annotations
 
 import argparse
-import os
 import sys
 
 from specli.runner import load_repo_dotenv, run_script
@@ -74,6 +73,21 @@ def _add_weblink_commands(sub: argparse._SubParsersAction) -> None:
         default=None,
         help="Asset-server collection (default: SPECIFY7_ASSET_COLLECTION or NHM-karplanter)",
     )
+    imp.add_argument("--apply", action="store_true", help="Write changes (default: dry-run)")
+
+
+def _add_formatter_commands(sub: argparse._SubParsersAction) -> None:
+    formatter = sub.add_parser(
+        "formatter",
+        help="UI field formatter sync (UIFormatters XML)",
+    )
+    cmd = formatter.add_subparsers(dest="cmd", required=True)
+
+    plan = cmd.add_parser("plan", help="Dry-run UIFormatter upsert (no writes)")
+    plan.add_argument("--collection", default=None, help="Specify collection to log into")
+
+    imp = cmd.add_parser("import", help="Upsert UIFormatters into Specify")
+    imp.add_argument("--collection", default=None, help="Specify collection to log into")
     imp.add_argument("--apply", action="store_true", help="Write changes (default: dry-run)")
 
 
@@ -174,6 +188,20 @@ def _dispatch_weblink(args: argparse.Namespace) -> None:
         return
 
 
+def _dispatch_formatter(args: argparse.Namespace) -> None:
+    argv: list[str] = []
+    if getattr(args, "collection", None):
+        argv += ["--collection", args.collection]
+    if args.cmd == "plan":
+        run_script("import_specify_formatters", argv)
+        return
+    if args.cmd == "import":
+        if args.apply:
+            argv += ["--apply"]
+        run_script("import_specify_formatters", argv)
+        return
+
+
 def _dispatch_schema(args: argparse.Namespace) -> None:
     if args.cmd == "export":
         argv = ["--output-dir", args.output_dir, "--lang", args.lang]
@@ -212,7 +240,9 @@ def _dispatch_schema(args: argparse.Namespace) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="specli",
-        description="Specify 7 GitOps CLI — forms (viewsets), schema configuration, and WebLinks",
+        description=(
+            "Specify 7 GitOps CLI — forms, schema, WebLinks, and UI field formatters"
+        ),
     )
     parser.add_argument(
         "--version",
@@ -223,6 +253,7 @@ def main(argv: list[str] | None = None) -> int:
     _add_form_commands(sub)
     _add_schema_commands(sub)
     _add_weblink_commands(sub)
+    _add_formatter_commands(sub)
 
     args = parser.parse_args(argv)
     load_repo_dotenv()
@@ -233,6 +264,8 @@ def main(argv: list[str] | None = None) -> int:
         _dispatch_schema(args)
     elif args.domain == "weblink":
         _dispatch_weblink(args)
+    elif args.domain == "formatter":
+        _dispatch_formatter(args)
     else:
         parser.error(f"unknown domain: {args.domain}")
     return 0

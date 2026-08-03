@@ -143,6 +143,10 @@ matching `scripts/ensure_*_picklist.py` script (with `--apply`) before schema/fo
 import. Example: `ensure_determination_addendum_picklist.py` for
 `Determination.addendum` / `DeterminationAddendum`.
 
+UI field formatters (`format` on schema fields) are managed by
+[`specli formatter`](specify_formatters_git_sync.md) — apply those **before**
+schema import when adding new formatter names.
+
 ## Direct script usage
 
 You can also call the underlying scripts:
@@ -151,5 +155,7 @@ You can also call the underlying scripts:
 - `scripts/import_specify_forms.py`
 - `scripts/export_specify_schema.py`
 - `scripts/import_specify_schema.py`
+- `scripts/import_specify_formatters.py`
+- `scripts/import_specify_weblinks.py`
 
-See their module docstrings for flags (same as `specli form` / `specli schema` subcommands).
+See their module docstrings for flags (same as `specli …` subcommands).

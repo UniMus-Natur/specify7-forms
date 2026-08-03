@@ -85,5 +85,7 @@ forms: enable the field in schema (`ishidden: false`) and add the cell in form X
 
 - Syncs discipline schema for the logged-in collection’s discipline.
 - Label sync for one language per bundle (`schema.<lang>.json`).
-- Does not manage pick list definitions, formatters, or viewsets (use forms sync).
+- Does not manage pick list definitions or viewsets (use forms sync / ensure scripts).
+- Field `format` names are synced; formatter **definitions** are managed by
+  [`specli formatter`](specify_formatters_git_sync.md) (`UIFormatters` app resource).
 - `--create-missing` can add container/item rows; prefer export after discipline bootstrap.
