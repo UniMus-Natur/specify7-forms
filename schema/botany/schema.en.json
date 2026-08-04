@@ -2865,12 +2865,12 @@
         "weblinkname": null
       },
       "preferredtaxon": {
-        "desc": "Preferred Taxon",
+        "desc": "Auto-derived accepted name from the taxon tree when Taxon is a synonym.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Preferred Taxon",
+        "name": "Accepted name (from tree)",
         "picklistname": null,
         "type": "ManyToOne",
         "weblinkname": null
@@ -2909,7 +2909,7 @@
         "weblinkname": null
       },
       "taxon": {
-        "desc": "The determined name of the specimen.",
+        "desc": "Working identification — link to the taxon tree (source of truth).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
@@ -2920,23 +2920,23 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "MUSIT entered classification term",
+        "desc": "Original MUSIT entered classification term (legacy dump; not the working taxon).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Entered taxon name",
+        "name": "Entered (MUSIT)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text2": {
-        "desc": "MUSIT valid classification term",
+        "desc": "Original MUSIT valid classification term (legacy dump; not the working taxon).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Valid taxon name",
+        "name": "Valid (MUSIT)",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
