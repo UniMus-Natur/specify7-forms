@@ -2669,7 +2669,7 @@
       "determiner": {
         "desc": "Individual who assigned or made the decision regarding the taxonomic name of specimen. In some instances, determiner may be an organization or institute. In Specify, determiner information is stored in the Agent table.",
         "format": null,
-        "ishidden": false,
+        "ishidden": true,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Determiner",
@@ -2678,9 +2678,9 @@
         "weblinkname": null
       },
       "determiners": {
-        "desc": "Determiners",
+        "desc": "One or more determiners involved in identifying the collection object.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Determiners",
