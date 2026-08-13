@@ -85,5 +85,5 @@ therefore starts from the currently served XML (backstop or DB) before upserting
 ## Limits (v1)
 
 - No export round-trip (git owns extension fragments).
-- Does not sync DataObjFormatters (table/query display aggregators).
+- Does not sync DataObjFormatters — use `specli dataobjformatter` (see README quick start).
 - Upserts only names present under `resources/formatters/` (does not delete remote-only formatters).

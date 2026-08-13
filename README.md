@@ -45,6 +45,10 @@ specli schema push --schema-dir schema
 specli formatter status
 specli formatter push
 
+# Table/query display (Taxon fullName + author on determinations, query boxes)
+specli dataobjformatter status
+specli dataobjformatter push
+
 # WebLinks
 specli weblink status
 specli weblink push
@@ -70,9 +74,11 @@ specli weblink push
 | `scripts/export_specify_schema.py` | Pull schema localization JSON |
 | `scripts/import_specify_schema.py` | Push schema into `SpLocaleContainer*` |
 | `scripts/import_specify_formatters.py` | Push UIFormatters XML |
+| `scripts/import_specify_dataobj_formatters.py` | Push DataObjFormatters XML (Taxon display) |
 | `scripts/import_specify_weblinks.py` | Push WebLinks XML |
 | `forms/` / `forms_all/` | Form XML trees |
 | `schema/` | Schema JSON per discipline (created by pull) |
 | `resources/formatters/` | UIFormatter extension fragments |
+| `resources/dataobj_formatters/` | DataObjFormatter extension fragments (Taxon, Determination, …) |
 | `resources/weblinks/` | WebLink extension fragments |
 | `example.env` | Template for `.env` credentials |

@@ -192,6 +192,34 @@ def _add_formatter_commands(sub: argparse._SubParsersAction) -> None:
     status.add_argument("--collection", default=None, help="Specify collection to log into")
 
 
+def _add_dataobjformatter_commands(sub: argparse._SubParsersAction) -> None:
+    dataobj = sub.add_parser(
+        "dataobjformatter",
+        help="Table/query formatter sync (DataObjFormatters XML — Taxon display, etc.)",
+    )
+    cmd = dataobj.add_subparsers(dest="cmd", required=True)
+
+    push = cmd.add_parser(
+        "push",
+        aliases=("import",),
+        help="Push local DataObjFormatters to Specify (git → Specify)",
+    )
+    push.add_argument("--collection", default=None, help="Specify collection to log into")
+    push.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show what would change without writing (same as status)",
+    )
+    push.add_argument("--apply", action="store_true", help=argparse.SUPPRESS)
+
+    status = cmd.add_parser(
+        "status",
+        aliases=("plan",),
+        help="Dry-run: what would push change on Specify",
+    )
+    status.add_argument("--collection", default=None, help="Specify collection to log into")
+
+
 def _normalize_cmd(cmd: str) -> str:
     """Map legacy verbs onto pull/push/status."""
     return {
@@ -318,11 +346,25 @@ def _dispatch_formatter(args: argparse.Namespace) -> None:
     run_script("import_specify_formatters", argv)
 
 
+def _dispatch_dataobjformatter(args: argparse.Namespace) -> None:
+    raw_cmd = args.cmd
+    argv: list[str] = []
+    if getattr(args, "collection", None):
+        argv += ["--collection", args.collection]
+
+    if _is_dry_run(raw_cmd, args):
+        run_script("import_specify_dataobj_formatters", argv)
+        return
+
+    argv += ["--apply"]
+    run_script("import_specify_dataobj_formatters", argv)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="specli",
         description=(
-            "Specify 7 GitOps CLI — pull/push forms, schema, WebLinks, and UIFormatters"
+            "Specify 7 GitOps CLI — pull/push forms, schema, WebLinks, UIFormatters, and DataObjFormatters"
         ),
         epilog=(
             "Think git: pull = Specify→git, push = git→Specify, status = dry-run push. "
@@ -340,6 +382,7 @@ def main(argv: list[str] | None = None) -> int:
     _add_schema_commands(sub)
     _add_weblink_commands(sub)
     _add_formatter_commands(sub)
+    _add_dataobjformatter_commands(sub)
 
     args = parser.parse_args(argv)
     load_repo_dotenv()
@@ -352,6 +395,8 @@ def main(argv: list[str] | None = None) -> int:
         _dispatch_weblink(args)
     elif args.domain == "formatter":
         _dispatch_formatter(args)
+    elif args.domain == "dataobjformatter":
+        _dispatch_dataobjformatter(args)
     else:
         parser.error(f"unknown domain: {args.domain}")
     return 0

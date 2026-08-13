@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-"""Merge git-tracked UI field formatters into Specify App Resource ``UIFormatters``.
+"""Merge git-tracked table formatters into Specify App Resource ``DataObjFormatters``.
 
-Reads ``resources/formatters/*.xml`` (``<formats>`` fragments with ``<format name>``
-children), fetches the discipline-scoped ``UIFormatters`` resource via the public
-API, and upserts definitions by ``@name`` (add missing, replace existing).
+Reads ``resources/dataobj_formatters/*.xml`` (``<formatters>`` fragments with ``<format name>``
+children), fetches the discipline-scoped ``DataObjFormatters`` resource via the public
+API, and upserts ``<format>`` definitions by ``@name`` (add missing, replace existing).
+``<aggregators>`` and other siblings are left unchanged.
 
-When Specify serves UIFormatters from the filesystem backstop
+When Specify serves DataObjFormatters from the filesystem backstop only
 (``X-Record-ID`` empty / ``None``), creates a discipline DB app resource with the
 merged XML so custom formatters persist.
 
 Dry-run by default. Use ``--apply`` to write.
 
 Usage:
-  specli formatter status
-  specli formatter push
+  specli dataobjformatter status
+  specli dataobjformatter push
 """
 
 from __future__ import annotations
@@ -38,22 +39,23 @@ from _specify_client import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-FORMATTERS_DIR = REPO_ROOT / "resources" / "formatters"
-LOG = "import_specify_formatters"
+FORMATTERS_DIR = REPO_ROOT / "resources" / "dataobj_formatters"
+LOG = "import_specify_dataobj_formatters"
+RESOURCE_NAME = "DataObjFormatters"
 
 
 def _load_formats_from_path(path: Path) -> list[ET.Element]:
     root = ET.fromstring(path.read_text(encoding="utf-8"))
     if root.tag == "format":
         return [root]
-    if root.tag != "formats":
-        sys.exit(f"{path}: expected <formats> root, got <{root.tag}>")
+    if root.tag != "formatters":
+        sys.exit(f"{path}: expected <formatters> root, got <{root.tag}>")
     return list(root.findall("format"))
 
 
 def _load_extension_formats() -> list[tuple[str, ET.Element]]:
     if not FORMATTERS_DIR.exists():
-        sys.exit(f"Formatters directory not found: {FORMATTERS_DIR}")
+        sys.exit(f"DataObjFormatters directory not found: {FORMATTERS_DIR}")
     out: list[tuple[str, ET.Element]] = []
     for path in sorted(FORMATTERS_DIR.glob("*.xml")):
         if path.name == "defaults.xml":
@@ -67,7 +69,6 @@ def _load_extension_formats() -> list[tuple[str, ET.Element]]:
 
 
 def _parse_record_id(header_value: str | None) -> int | None:
-    """Filesystem backstop returns id=None → header may be empty or the string 'None'."""
     if header_value is None:
         return None
     text = str(header_value).strip()
@@ -80,8 +81,8 @@ def _parse_record_id(header_value: str | None) -> int | None:
 
 
 def _existing_format_index(root: ET.Element) -> dict[str, ET.Element]:
-    if root.tag != "formats":
-        sys.exit(f"Expected <formats> root in UIFormatters XML, got <{root.tag}>")
+    if root.tag != "formatters":
+        sys.exit(f"Expected <formatters> root in {RESOURCE_NAME} XML, got <{root.tag}>")
     index: dict[str, ET.Element] = {}
     for element in root.findall("format"):
         name = (element.attrib.get("name") or "").strip()
@@ -100,7 +101,7 @@ def _merge_formatters(
     existing_xml: str,
     extensions: list[tuple[str, ET.Element]],
 ) -> tuple[str, list[str], list[str]]:
-    """Upsert formats by @name. Returns (xml, added_names, updated_names)."""
+    """Upsert <format> by @name. Returns (xml, added_names, updated_names)."""
     root = ET.fromstring(existing_xml)
     present = _existing_format_index(root)
     added: list[str] = []
@@ -110,7 +111,6 @@ def _merge_formatters(
     for name, element in extensions:
         if name in present:
             old = present[name]
-            # Skip rewrite when semantically identical (string compare of subtree)
             old_s = ET.tostring(old, encoding="unicode")
             new_s = ET.tostring(element, encoding="unicode")
             if old_s == new_s:
@@ -150,7 +150,7 @@ def _find_discipline_resource_dir(session, base: str, collection_id: int) -> int
     sys.exit("No discipline SpAppResourceDir found for this collection")
 
 
-def _create_uiformatters_resource(
+def _create_resource(
     session,
     base: str,
     *,
@@ -164,10 +164,10 @@ def _create_uiformatters_resource(
         base,
         "/api/specify/spappresource/",
         {
-            "name": "UIFormatters",
+            "name": RESOURCE_NAME,
             "mimetype": "text/xml",
-            "metadata": "UIFormatters",
-            "description": "UIFormatters",
+            "metadata": RESOURCE_NAME,
+            "description": RESOURCE_NAME,
             "level": 0,
             "spappresourcedir": f"/api/specify/spappresourcedir/{dir_id}/",
             "specifyuser": f"/api/specify/specifyuser/{int(specify_user_id)}/",
@@ -212,7 +212,7 @@ def _put_spappresourcedata(session, base: str, resource_id: int, merged_xml: str
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Import UI field formatters (UIFormatters) into Specify"
+        description=f"Import table formatters ({RESOURCE_NAME}) into Specify"
     )
     parser.add_argument(
         "--collection",
@@ -222,7 +222,7 @@ def main() -> None:
     parser.add_argument(
         "--apply",
         action="store_true",
-        help="Write merged UIFormatters to Specify",
+        help=f"Write merged {RESOURCE_NAME} to Specify",
     )
     args = parser.parse_args()
 
@@ -248,24 +248,23 @@ def main() -> None:
     )
     specify_user_id = resolve_specify_user_id(session, base, user)
 
-    res = session.get(f"{base}/context/app_resource?name=UIFormatters", timeout=60)
+    res = session.get(f"{base}/context/app_resource?name={RESOURCE_NAME}", timeout=60)
 
     if res.status_code == 404:
-        # No backstop and no DB row — bootstrap with extensions only.
-        root = ET.Element("formats")
+        root = ET.Element("formatters")
         for _, element in extensions:
             root.append(element)
         merged_xml = _xml_declaration(ET.tostring(root, encoding="unicode"))
         added = [name for name, _ in extensions]
         print(
-            f"[{LOG}] UIFormatters missing — would create with: {', '.join(added)} "
+            f"[{LOG}] {RESOURCE_NAME} missing — would create with: {', '.join(added)} "
             f"(collection={selected_collection})",
             file=sys.stderr,
         )
         if not args.apply:
             print(f"[{LOG}] dry-run — pass --apply to write", file=sys.stderr)
             return
-        resource_id, data_id = _create_uiformatters_resource(
+        resource_id, data_id = _create_resource(
             session,
             base,
             collection_id=col_id,
@@ -273,14 +272,14 @@ def main() -> None:
             merged_xml=merged_xml,
         )
         print(
-            f"[{LOG}] created UIFormatters spappresource={resource_id} "
+            f"[{LOG}] created {RESOURCE_NAME} spappresource={resource_id} "
             f"spappresourcedata={data_id}; definitions: {', '.join(added)}",
             file=sys.stderr,
         )
         return
 
     if res.status_code != 200:
-        sys.exit(f"GET UIFormatters failed ({res.status_code}): {res.text[:500]}")
+        sys.exit(f"GET {RESOURCE_NAME} failed ({res.status_code}): {res.text[:500]}")
 
     resource_id = _parse_record_id(res.headers.get("X-Record-ID"))
     merged_xml, added, updated = _merge_formatters(res.text, extensions)
@@ -302,7 +301,7 @@ def main() -> None:
 
     if resource_id is None:
         print(
-            f"[{LOG}] UIFormatters served from filesystem backstop (no DB row) — "
+            f"[{LOG}] {RESOURCE_NAME} served from filesystem backstop (no DB row) — "
             f"would create discipline resource and {action} "
             f"(collection={selected_collection})",
             file=sys.stderr,
@@ -310,7 +309,7 @@ def main() -> None:
         if not args.apply:
             print(f"[{LOG}] dry-run — pass --apply to write", file=sys.stderr)
             return
-        new_id, data_id = _create_uiformatters_resource(
+        new_id, data_id = _create_resource(
             session,
             base,
             collection_id=col_id,
@@ -318,7 +317,7 @@ def main() -> None:
             merged_xml=merged_xml,
         )
         print(
-            f"[{LOG}] created UIFormatters spappresource={new_id} "
+            f"[{LOG}] created {RESOURCE_NAME} spappresource={new_id} "
             f"spappresourcedata={data_id}; {action}",
             file=sys.stderr,
         )
@@ -335,7 +334,7 @@ def main() -> None:
 
     data_id = _put_spappresourcedata(session, base, resource_id, merged_xml)
     print(
-        f"[{LOG}] updated UIFormatters (spappresourcedata id={data_id}); {action}",
+        f"[{LOG}] updated {RESOURCE_NAME} (spappresourcedata id={data_id}); {action}",
         file=sys.stderr,
     )
 

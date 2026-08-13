@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Merge into Specify App Resource "DataObjFormatters" (discipline scope).
+     Shows binomial + author (e.g. "Carex digitata L.") in query boxes and on
+     Determination "Accepted name (from tree)". -->
+<formatters>
+  <format name="Taxon" title="Taxon" class="edu.ku.brc.specify.datamodel.Taxon" default="true">
+    <switch single="true">
+      <fields>
+        <field>fullName</field>
+        <field sep=" ">author</field>
+      </fields>
+    </switch>
+  </format>
+  <format name="Determination" title="Determination" class="edu.ku.brc.specify.datamodel.Determination" default="true">
+    <switch single="false" field="isCurrent">
+      <fields value="true">
+        <field>preferredTaxon.fullName</field>
+        <field sep=" ">preferredTaxon.author</field>
+        <field type="boolean" format=" " sep=" (current)">isCurrent</field>
+      </fields>
+      <fields value="false">
+        <field>taxon.fullName</field>
+        <field sep=" ">taxon.author</field>
+      </fields>
+    </switch>
+  </format>
+</formatters>
