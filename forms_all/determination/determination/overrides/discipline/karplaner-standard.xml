@@ -54,6 +54,9 @@
           <cell type="field" id="6" name="typeStatusName" uitype="combobox" colspan="4" />
         </row>
         <row>
+          <cell type="subview" id="citations" name="determinationCitations" viewname="DeterminationCitation" colspan="12" />
+        </row>
+        <row>
           <cell type="subview" id="determiners" name="determiners" viewname="Determiners" colspan="12" />
         </row>
         <row>

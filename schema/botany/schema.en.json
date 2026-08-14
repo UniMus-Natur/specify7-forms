@@ -2124,7 +2124,7 @@
         "weblinkname": null
       },
       "text3": {
-        "desc": "Migration archive (JSON)",
+        "desc": "Migration archive (JSON). Includes unmapped MUSIT fields, field-number resolution, and specimen/taxon/type literature strings.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
@@ -2623,12 +2623,12 @@
         "weblinkname": null
       },
       "determinationcitations": {
-        "desc": "Determination Citations",
+        "desc": "Literature cited for this determination, including type publications.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Determination Citations",
+        "name": "Citations",
         "picklistname": null,
         "type": "OneToMany",
         "weblinkname": null
