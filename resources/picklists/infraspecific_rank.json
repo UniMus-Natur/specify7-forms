@@ -1,0 +1,11 @@
+{
+  "name": "InfraspecificRank",
+  "description": "MUSIT CLASSIFICATION_TERM.INFRASPES_RANK → TAXON_CATHEGORY.TAX_CATH_ABBREV values used on botanical determinations.",
+  "source_query": "SELECT DISTINCT tcat.tax_cath_abbrev FROM MUSIT_BOTANIKK_FELLES.classification_term ct JOIN MUSIT_BOTANIKK_FELLES.taxon_cathegory tcat ON tcat.tax_cath_id = ct.infraspes_rank WHERE tcat.tax_cath_abbrev IS NOT NULL ORDER BY tcat.tax_cath_id",
+  "values": [
+    "ssp.",
+    "var.",
+    "form.",
+    "cv."
+  ]
+}

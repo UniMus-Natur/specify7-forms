@@ -28,14 +28,24 @@
           <cell type="field" id="3" name="isCurrent" uitype="checkbox" />
         </row>
         <row>
-          <cell type="label" label="Accepted name (from tree)" labelfor="13" />
+          <cell type="label" label="Entered taxon name" labelfor="dt1" />
+          <cell type="field" id="dt1" name="text1" uitype="text" readonly="true" colspan="9" />
+        </row>
+        <row>
+          <cell type="label" label="Valid taxon name" labelfor="dt2" />
+          <cell type="field" id="dt2" name="text2" uitype="text" readonly="true" colspan="9" />
+        </row>
+        <row>
+          <cell type="label" label="Accepted taxon name" labelfor="13" />
           <cell type="field" id="13" name="preferredTaxon" uitype="text" readonly="true" colspan="9" />
         </row>
         <row>
-          <cell type="label" label="Infraspecific rank and name" labelfor="dt3" />
-          <cell type="field" id="dt3" name="text3" uitype="text" colspan="4" />
-          <cell type="label" labelfor="dt_add" />
-          <cell type="field" id="dt_add" name="addendum" uitype="combobox" picklist="DeterminationAddendum" colspan="4" />
+          <cell type="label" label="Infraspecific rank" labelfor="dt4" />
+          <cell type="field" id="dt4" name="text4" uitype="combobox" picklist="InfraspecificRank" />
+          <cell type="label" label="Infraspecific name" labelfor="dt3" />
+          <cell type="field" id="dt3" name="text3" uitype="text" />
+          <cell type="label" label="Sensu" labelfor="dt_add" />
+          <cell type="field" id="dt_add" name="addendum" uitype="combobox" picklist="DeterminationAddendum" />
         </row>
         <row>
           <cell type="label" labelfor="7" />
@@ -49,22 +59,6 @@
         <row>
           <cell type="label" label="Note" labelfor="drm" />
           <cell type="field" id="drm" name="remarks" uitype="textareabrief" rows="2" colspan="9" />
-        </row>
-
-        <!--
-          MUSIT classterm / valid_classterm dumps (migration provenance).
-          Not for day-to-day ID work — Taxon above is authoritative.
-        -->
-        <row>
-          <cell type="separator" label="Original MUSIT names" colspan="12" />
-        </row>
-        <row>
-          <cell type="label" label="Entered (MUSIT)" labelfor="dt1" />
-          <cell type="field" id="dt1" name="text1" uitype="text" readonly="true" colspan="9" />
-        </row>
-        <row>
-          <cell type="label" label="Valid (MUSIT)" labelfor="dt2" />
-          <cell type="field" id="dt2" name="text2" uitype="text" readonly="true" colspan="9" />
         </row>
       </rows>
     </viewdef>

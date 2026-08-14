@@ -144,7 +144,9 @@ When you add a field to a form, also set `"ishidden": false` for that field in
 Pick lists referenced by schema or form XML are **not** created by specli — run the
 matching `scripts/ensure_*_picklist.py` script (with `--apply`) before schema/form
 push. Example: `ensure_determination_addendum_picklist.py` for
-`Determination.addendum` / `DeterminationAddendum`.
+`Determination.addendum` / `DeterminationAddendum`, and
+`ensure_infraspecific_rank_picklist.py` for `Determination.text4` /
+`InfraspecificRank`.
 
 UI field formatters (`format` on schema fields) are managed by
 [`specli formatter`](specify_formatters_git_sync.md) — push those **before**

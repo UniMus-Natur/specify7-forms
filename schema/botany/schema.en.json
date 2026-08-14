@@ -2557,12 +2557,12 @@
     "isuiformatter": null,
     "items": {
       "addendum": {
-        "desc": "A Pick List suffix element added to the taxon name to indicate a concept or citation for that name. For example; sensu lato.",
+        "desc": "Sensu lato / sensu stricto suffix on the determination (MUSIT CLASSIFICATION_TERM.SENSU_TERM).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Addendum",
+        "name": "Sensu",
         "picklistname": "DeterminationAddendum",
         "type": "java.lang.String",
         "weblinkname": null
@@ -2870,7 +2870,7 @@
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Accepted name (from tree)",
+        "name": "Accepted taxon name",
         "picklistname": null,
         "type": "ManyToOne",
         "weblinkname": null
@@ -2887,12 +2887,12 @@
         "weblinkname": null
       },
       "remarks": {
-        "desc": "Additional Comments.",
+        "desc": "Note attached to the classification / determination event.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Remarks",
+        "name": "Note",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -2925,7 +2925,7 @@
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Entered (MUSIT)",
+        "name": "Entered taxon name",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -2936,30 +2936,30 @@
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Valid (MUSIT)",
+        "name": "Valid taxon name",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text3": {
-        "desc": "MUSIT infraspecific rank and name",
+        "desc": "MUSIT CLASSIFICATION_TERM.INFRASPES_NAME (epithet only).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Infraspecific rank and name",
+        "name": "Infraspecific name",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
       },
       "text4": {
-        "desc": "MUSIT sensu term",
+        "desc": "MUSIT infraspecific rank abbreviation (ssp., var., form., cv.).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Sensu",
-        "picklistname": null,
+        "name": "Infraspecific rank",
+        "picklistname": "InfraspecificRank",
         "type": "java.lang.String",
         "weblinkname": null
       },
