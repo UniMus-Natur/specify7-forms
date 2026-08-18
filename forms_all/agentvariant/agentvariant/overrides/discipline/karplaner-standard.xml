@@ -1,7 +1,7 @@
 <viewset name="Karplaner - standard" source="db" level="Discipline">
   <views>
     <view name="AgentVariant" class="edu.ku.brc.specify.datamodel.AgentVariant" resourcelabels="false">
-      <desc>AgentVariant subform within the Agent form.</desc>
+      <desc>Alternate names subform (MUSIT PERSON_NAME synonyms).</desc>
       <altviews defaultmode="view">
         <altview name="AgentVariant View" title="AgentVariant" viewdef="AgentVariant" mode="view" validated="false" />
         <altview name="AgentVariant Edit" title="AgentVariant" viewdef="AgentVariant" mode="edit" validated="true" default="true" />

@@ -1,4 +1,331 @@
 {
+  "agent": {
+    "aggregator": null,
+    "defaultui": null,
+    "desc": "People, groups, and organisations (collectors, determiners, …). MUSIT person-module fields mapped to text1–text5, dates, identifiers, and variants.",
+    "format": null,
+    "ishidden": false,
+    "isuiformatter": null,
+    "items": {
+      "addresses": {
+        "desc": "Address and phone from MUSIT ACTOR.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Addresses",
+        "picklistname": null,
+        "type": "OneToMany",
+        "weblinkname": null
+      },
+      "dateofbirth": {
+        "desc": "MUSIT ACTOR.BIRTHDATE or FODT tag in NOTE.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Date of birth",
+        "picklistname": null,
+        "type": "java.util.Calendar",
+        "weblinkname": null
+      },
+      "dateofdeath": {
+        "desc": "MUSIT ACTOR.DEATHDATE or DOD tag in NOTE.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Date of death",
+        "picklistname": null,
+        "type": "java.util.Calendar",
+        "weblinkname": null
+      },
+      "email": {
+        "desc": "Email address for agent.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Email",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "firstname": {
+        "desc": "First name of agent.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "First name",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "identifiers": {
+        "desc": "Wikidata, ORCID, and other external IDs.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Identifiers",
+        "picklistname": null,
+        "type": "OneToMany",
+        "weblinkname": null
+      },
+      "lastname": {
+        "desc": "Last name of Person.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Last name",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "middleinitial": {
+        "desc": "Middle initial of Person.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Middle initial",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "remarks": {
+        "desc": "MUSIT ACTOR.NOTE and migration metadata.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Note",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "text1": {
+        "desc": "MUSIT ACTORNAME (display name in person module).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Display name",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "text2": {
+        "desc": "MUSIT GROUP_MEMBER_NAMES.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Group name",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "text3": {
+        "desc": "MUSIT ACTOR.GENDER.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Gender",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "text4": {
+        "desc": "MUSIT ACTOR.INSTITUTION.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Institution",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "text5": {
+        "desc": "Raw MUSIT ACTOR.URL_NOTE (Wikidata/ORCID source text).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "URL note",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "title": {
+        "desc": "Title of Person.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Title",
+        "picklistname": "AgentTitles",
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "url": {
+        "desc": "MUSIT ACTOR.URL.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "URL",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "variants": {
+        "desc": "Synonym / variant spellings (MUSIT PERSON_NAME).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Alternate names",
+        "picklistname": null,
+        "type": "OneToMany",
+        "weblinkname": null
+      }
+    },
+    "name": "Agent",
+    "picklistname": null,
+    "type": null
+  },
+  "address": {
+    "aggregator": null,
+    "defaultui": null,
+    "desc": "Agent address and contact (MUSIT ACTOR.ADRESS, POSTAL_ADDRESS, PHONE_NUMBER).",
+    "format": null,
+    "ishidden": false,
+    "isuiformatter": null,
+    "items": {
+      "address": {
+        "desc": "MUSIT ACTOR.ADRESS.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Address",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "address2": {
+        "desc": "MUSIT ACTOR.POSTAL_ADDRESS.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Postal address",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "phone1": {
+        "desc": "MUSIT ACTOR.PHONE_NUMBER.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Phone",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      }
+    },
+    "name": "Address",
+    "picklistname": null,
+    "type": null
+  },
+  "agentidentifier": {
+    "aggregator": null,
+    "defaultui": null,
+    "desc": "External identifiers for an agent (Wikidata, ORCID, URL, …).",
+    "format": null,
+    "ishidden": false,
+    "isuiformatter": null,
+    "items": {
+      "identifier": {
+        "desc": "External ID value (Q-number, ORCID, URL, …).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": true,
+        "isuiformatter": null,
+        "name": "Identifier",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "identifiertype": {
+        "desc": "Wikidata, ORCID, URL, …",
+        "format": null,
+        "ishidden": false,
+        "isrequired": true,
+        "isuiformatter": null,
+        "name": "Identifier type",
+        "picklistname": "AgentIdentifierType",
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "remarks": {
+        "desc": "Additional comments.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Remarks",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      }
+    },
+    "name": "Agent Identifier",
+    "picklistname": null,
+    "type": null
+  },
+  "agentvariant": {
+    "aggregator": null,
+    "defaultui": null,
+    "desc": "Alternate name spellings for an agent (MUSIT PERSON_NAME synonyms).",
+    "format": null,
+    "ishidden": false,
+    "isuiformatter": null,
+    "items": {
+      "name": {
+        "desc": "Alternate spelling (MUSIT PERSON_NAME).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Name",
+        "picklistname": null,
+        "type": "java.lang.String",
+        "weblinkname": null
+      },
+      "vartype": {
+        "desc": "Variant type (Variant, Vernacular, Label name, …).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": true,
+        "isuiformatter": null,
+        "name": "Type",
+        "picklistname": "AgentVariant",
+        "type": "java.lang.Byte",
+        "weblinkname": null
+      }
+    },
+    "name": "Agent Variant",
+    "picklistname": null,
+    "type": null
+  },
   "attachment": {
     "aggregator": null,
     "defaultui": null,

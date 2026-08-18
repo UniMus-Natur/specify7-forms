@@ -11,6 +11,6 @@
   "output": "schema/botany",
   "schema_file": "schema.en.json",
   "source": "https://specify-stg.natur.unimus.no",
-  "table_count": 6,
+  "table_count": 10,
   "visible_field_count": 116
 }

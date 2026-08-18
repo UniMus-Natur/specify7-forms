@@ -1,7 +1,7 @@
 <viewset name="Karplaner - standard" source="db" level="Discipline">
   <views>
     <view name="AgentIdentifier" class="edu.ku.brc.specify.datamodel.AgentIdentifier">
-      <desc>Subform within the agent form.</desc>
+      <desc>External identifiers subform (Wikidata, ORCID, …).</desc>
       <altviews>
         <altview name="AgentIdentifier Table View" viewdef="AgentIdentifier Table" mode="view" />
         <altview name="AgentIdentifier Table Edit" viewdef="AgentIdentifier Table" mode="edit" />

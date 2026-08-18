@@ -1,7 +1,7 @@
 <viewset name="Karplaner - standard" source="db" level="Discipline">
   <views>
     <view name="Agent" class="edu.ku.brc.specify.datamodel.Agent" busrules="edu.ku.brc.specify.datamodel.busrules.AgentBusRules" isinternal="false" resourcelabels="false">
-      <desc>Agent subform within the AccessionAgent form.</desc>
+      <desc>Agent form — person / organisation details including MUSIT-migrated fields.</desc>
       <altviews defaultmode="view">
         <altview name="Agent View" title="Agent" viewdef="Agent" mode="view" validated="false" />
         <altview name="Agent Edit" title="Agent" viewdef="Agent" mode="edit" validated="true" default="true" />
@@ -10,7 +10,7 @@
   </views>
   <viewdefs>
     <viewdef name="Agent" class="edu.ku.brc.specify.datamodel.Agent" type="form" gettable="edu.ku.brc.af.ui.forms.DataGetterForObj" settable="edu.ku.brc.af.ui.forms.DataSetterForObj">
-      <desc>Agent subform for Acessions.</desc>
+      <desc>Agent form with MUSIT person-module fields.</desc>
       <columnDef>100px,2px,125px,5px,75px,2px,128px,5px,80px,2px,140px,5px,90px,2px,29px,2px,35px,0px,15px,p:g</columnDef>
       <columnDef os="lnx">115px,2px,146px,5px,85px,2px,140px,5px,90px,2px,149px,5px,100px,2px,35px,2px,35px,0px,15px,p:g</columnDef>
       <columnDef os="mac">130px,2px,150px,5px,85px,2px,160px,5px,105px,2px,164px,5px,120px,2px,45px,2px,48px,0px,15px,p:g</columnDef>
@@ -32,6 +32,28 @@
           <cell type="field" id="4" name="middleInitial" uitype="text" colspan="3" />
         </row>
         <row>
+          <cell type="label" labelfor="displayName" />
+          <cell type="field" id="displayName" name="text1" uitype="text" colspan="14" />
+        </row>
+        <row>
+          <cell type="label" labelfor="19" />
+          <cell type="field" id="19" name="this" uitype="plugin" initialize="name=PartialDateUI;df=dateOfBirth;tp=dateOfBirthPrecision" uifieldformatter="Date" />
+          <cell type="label" labelfor="20" />
+          <cell type="field" id="20" name="this" uitype="plugin" initialize="name=PartialDateUI;df=dateOfDeath;tp=dateOfDeathPrecision" uifieldformatter="Date" />
+        </row>
+        <row>
+          <cell type="label" labelfor="inst" />
+          <cell type="field" id="inst" name="text4" uitype="text" colspan="5" />
+          <cell type="label" labelfor="gender" />
+          <cell type="field" id="gender" name="text3" uitype="text" />
+          <cell type="label" labelfor="17" />
+          <cell type="field" id="17" name="url" uitype="text" colspan="5" />
+        </row>
+        <row>
+          <cell type="label" labelfor="groupName" />
+          <cell type="field" id="groupName" name="text2" uitype="text" colspan="14" />
+        </row>
+        <row>
           <cell type="label" labelfor="8" />
           <cell type="field" id="8" name="abbreviation" uitype="text" />
           <cell type="label" labelfor="7" />
@@ -51,16 +73,36 @@
           </cell>
         </row>
         <row>
+          <cell type="separator" label="Address and contact" colspan="19" />
+        </row>
+        <row>
           <cell type="subview" viewname="Address" id="9" name="addresses" colspan="19" />
+        </row>
+        <row>
+          <cell type="separator" label="Alternate names" colspan="19" />
         </row>
         <row>
           <cell type="subview" viewname="AgentVariant" id="variants" name="variants" colspan="19" />
         </row>
         <row>
-          <cell type="subview" viewname="AgentSpecialty" id="50" name="agentSpecialties" colspan="19" rows="3" />
+          <cell type="separator" label="External identifiers" colspan="19" />
         </row>
         <row>
           <cell type="subview" viewname="AgentIdentifier" id="ai" name="identifiers" colspan="19" rows="3" />
+        </row>
+        <row>
+          <cell type="subview" viewname="AgentSpecialty" id="50" name="agentSpecialties" colspan="19" rows="3" />
+        </row>
+        <row>
+          <cell type="separator" label="Notes" colspan="19" />
+        </row>
+        <row>
+          <cell type="label" labelfor="urlNote" />
+          <cell type="field" id="urlNote" name="text5" uitype="textareabrief" rows="2" colspan="14" />
+        </row>
+        <row>
+          <cell type="label" labelfor="16" />
+          <cell type="field" id="16" name="remarks" uitype="textareabrief" rows="3" colspan="14" />
         </row>
         <row>
           <cell type="separator" label="Attachments" colspan="19" />
