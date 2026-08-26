@@ -29,7 +29,7 @@
         </row>
         <row>
           <cell type="label" label="Entered taxon name" labelfor="dt1" />
-          <cell type="field" id="dt1" name="text1" uitype="text" readonly="true" colspan="9" />
+          <cell type="field" id="dt1" name="text1" uitype="text" colspan="9" />
         </row>
         <row>
           <cell type="label" label="Valid taxon name" labelfor="dt2" />

@@ -3247,7 +3247,7 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Original MUSIT entered classification term (legacy dump; not the working taxon).",
+        "desc": "Verbatim taxon name as written on the record (MUSIT ENTERED_CLASSTERM). Free text; the working identification is Taxon.",
         "format": null,
         "ishidden": false,
         "isrequired": false,

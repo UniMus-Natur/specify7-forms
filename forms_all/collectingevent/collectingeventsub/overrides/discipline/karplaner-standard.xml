@@ -69,6 +69,10 @@
           <cell type="field" id="vl" name="verbatimLocality" uitype="textareabrief" rows="2" colspan="10" />
         </row>
         <row>
+          <cell type="label" label="Habitat / Ecology" labelfor="ceh" />
+          <cell type="field" id="ceh" name="text1" uitype="textareabrief" rows="2" colspan="10" />
+        </row>
+        <row>
           <cell type="label" labelfor="6" />
           <cell type="field" id="6" name="remarks" uitype="textareabrief" rows="2" colspan="10" />
         </row>
