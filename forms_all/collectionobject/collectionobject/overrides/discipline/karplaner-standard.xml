@@ -58,6 +58,37 @@
           <cell type="subview" viewname="Preparation" id="8" name="preparations" defaulttype="table" colspan="12" rows="3" />
         </row>
         <row>
+          <cell type="separator" label="Type information" colspan="12" />
+        </row>
+        <row>
+          <cell type="label" label="Type status" labelfor="tstat" />
+          <cell type="field" id="tstat" name="restrictions" uitype="combobox" picklist="TypeStatus" />
+          <cell type="label" label="Type year" labelfor="tyear" />
+          <cell type="field" id="tyear" name="integer2" uitype="text" />
+          <cell type="label" label="Type note" labelfor="tnote" />
+          <cell type="field" id="tnote" name="reservedText3" uitype="text" />
+        </row>
+        <row>
+          <cell type="label" label="Type designator 1" labelfor="td1" />
+          <cell type="field" id="td1" name="agent1" uitype="querycbx" initialize="name=Agent;title=Agent" colspan="3" />
+          <cell type="label" label="Type designator 2" labelfor="td2" />
+          <cell type="field" id="td2" name="cataloger" uitype="querycbx" initialize="name=Agent;title=Agent" colspan="3" />
+        </row>
+        <row>
+          <cell type="subview" id="cocitations" name="collectionObjectCitations" viewname="CollectionObjectCitation" colspan="12" rows="3" />
+        </row>
+        <row>
+          <cell type="separator" label="Literature" colspan="12" />
+        </row>
+        <row>
+          <cell type="label" label="Specimen literature" labelfor="slit" />
+          <cell type="field" id="slit" name="ocr" uitype="textareabrief" rows="2" colspan="10" />
+        </row>
+        <row>
+          <cell type="label" label="Taxon literature" labelfor="tlit" />
+          <cell type="field" id="tlit" name="embargoReason" uitype="textareabrief" rows="2" colspan="10" />
+        </row>
+        <row>
           <cell type="separator" label="Object origin/state &amp; attributes" colspan="12" />
         </row>
         <row>

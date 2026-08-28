@@ -1637,12 +1637,12 @@
         "weblinkname": null
       },
       "agent1": {
-        "desc": "Agent1",
+        "desc": "First MUSIT type designator (typification event role Type designator).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
-        "isuiformatter": null,
-        "name": "Agent1",
+        "isuiformatter": "Agent",
+        "name": "Type designator 1",
         "picklistname": null,
         "type": "ManyToOne",
         "weblinkname": null
@@ -1714,12 +1714,12 @@
         "weblinkname": null
       },
       "cataloger": {
-        "desc": "In Specify, the person who recorded the specimen data in the catalog. Cataloger records are stored in the Agent table.",
+        "desc": "Second MUSIT type designator when typification lists more than one person.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
-        "isuiformatter": null,
-        "name": "Cataloger",
+        "isuiformatter": "Agent",
+        "name": "Type designator 2",
         "picklistname": null,
         "type": "ManyToOne",
         "weblinkname": null
@@ -1813,12 +1813,12 @@
         "weblinkname": null
       },
       "collectionobjectcitations": {
-        "desc": "Collection Object Citations",
+        "desc": "Type publications linked to this specimen (MUSIT Type info tab).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Collection Object Citations",
+        "name": "Type publications",
         "picklistname": null,
         "type": "OneToMany",
         "weblinkname": null
@@ -2000,12 +2000,12 @@
         "weblinkname": null
       },
       "embargoreason": {
-        "desc": "Embargo Reason",
+        "desc": "Taxon literature from the MUSIT Literature tab (aggregated free text).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Embargo Reason",
+        "name": "Taxon literature",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -2110,12 +2110,12 @@
         "weblinkname": null
       },
       "integer2": {
-        "desc": "Integer2",
+        "desc": "Typification year from the MUSIT Type info tab.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Integer2",
+        "name": "Type year",
         "picklistname": null,
         "type": "java.lang.Integer",
         "weblinkname": null
@@ -2253,12 +2253,12 @@
         "weblinkname": null
       },
       "ocr": {
-        "desc": "Ocr",
+        "desc": "Specimen literature from the MUSIT Literature tab (aggregated free text).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Ocr",
+        "name": "Specimen literature",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -2385,24 +2385,24 @@
         "weblinkname": null
       },
       "reservedtext3": {
-        "desc": "Reserved Text3",
+        "desc": "Typification note from the MUSIT Type info tab.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Reserved Text3",
+        "name": "Type note",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
       },
       "restrictions": {
-        "desc": "Restrictions",
+        "desc": "Type status from the MUSIT Type info tab (TYPIFICATION_TYPE_ID → TYPES.TYPETERM).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Restrictions",
-        "picklistname": null,
+        "name": "Type status",
+        "picklistname": "TypeStatus",
         "type": "java.lang.String",
         "weblinkname": null
       },
