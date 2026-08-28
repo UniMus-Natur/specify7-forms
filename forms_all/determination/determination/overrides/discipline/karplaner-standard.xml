@@ -21,7 +21,7 @@
       <columnDef os="exp">p,2px,p:g,5px:g,p,2px,p:g,5px:g,p,2px,p:g,p:g</columnDef>
       <rowDef auto="true" cell="p" sep="2px" />
       <rows>
-        <!-- Working identification: taxon tree link is the source of truth. -->
+        <!-- Working identification: taxon tree link is the source of truth (unset for hybrids). -->
         <row>
           <cell type="label" label="Taxon" labelfor="1" />
           <cell type="field" id="1" name="taxon" uitype="querycbx" initialize="name=Taxon" colspan="7" />
@@ -29,11 +29,16 @@
         </row>
         <row>
           <cell type="label" label="Entered taxon name" labelfor="dt1" />
-          <cell type="field" id="dt1" name="text1" uitype="text" colspan="9" />
+          <cell type="field" id="dt1" name="text1" uitype="textareabrief" rows="2" colspan="7" />
+          <cell type="field" id="dthy" name="yesNo1" uitype="checkbox" label="Hybrid" />
+        </row>
+        <row>
+          <cell type="label" label="Hybrid parents" labelfor="dthp" />
+          <cell type="field" id="dthp" name="text5" uitype="text" readonly="true" colspan="9" />
         </row>
         <row>
           <cell type="label" label="Valid taxon name" labelfor="dt2" />
-          <cell type="field" id="dt2" name="text2" uitype="text" readonly="true" colspan="9" />
+          <cell type="field" id="dt2" name="text2" uitype="textareabrief" rows="2" readonly="true" colspan="9" />
         </row>
         <row>
           <cell type="label" label="Accepted taxon name" labelfor="13" />

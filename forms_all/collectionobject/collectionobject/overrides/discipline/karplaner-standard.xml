@@ -110,7 +110,7 @@
         </row>
         <row>
           <cell type="label" labelfor="t3" />
-          <cell type="field" id="t3" name="text3" uitype="textareabrief" rows="4" colspan="10" readonly="true" />
+          <cell type="field" id="t3" name="text3" uitype="textareabrief" rows="8" colspan="10" readonly="true" />
         </row>
         <row>
           <cell type="separator" label="Attachments" colspan="12" />

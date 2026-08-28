@@ -2451,7 +2451,7 @@
         "weblinkname": null
       },
       "text3": {
-        "desc": "Migration archive (JSON). Includes unmapped MUSIT fields, field-number resolution, and specimen/taxon/type literature strings.",
+        "desc": "Migration archive (JSON). Includes unmapped MUSIT fields, field-number resolution, specimen/taxon/type literature, and hybrid_determinations (parent species with IDs for later cleanup).",
         "format": null,
         "ishidden": false,
         "isrequired": false,
@@ -3247,7 +3247,7 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Verbatim taxon name as written on the record (MUSIT ENTERED_CLASSTERM). Free text; the working identification is Taxon.",
+        "desc": "Verbatim taxon name as written on the record (MUSIT ENTERED_CLASSTERM). For hybrids this is the full formula; Taxon is left unset until cleanup.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
@@ -3258,7 +3258,7 @@
         "weblinkname": null
       },
       "text2": {
-        "desc": "Original MUSIT valid classification term (legacy dump; not the working taxon).",
+        "desc": "Original MUSIT valid classification term (legacy dump; not the working taxon). For hybrids this is the full formula with authors.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
@@ -3291,12 +3291,12 @@
         "weblinkname": null
       },
       "text5": {
-        "desc": "Text5",
+        "desc": "Hybrid parent species summary (from MUSIT CLASSTERM_LATIN_NAME). Full structured parents with IDs are in CollectionObject.text3.hybrid_determinations.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text5",
+        "name": "Hybrid parents",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
@@ -3390,12 +3390,12 @@
         "weblinkname": null
       },
       "yesno1": {
-        "desc": "User definable.",
+        "desc": "True when the determination is a hybrid formula (MUSIT classterm with × / x, or ≥2 classterm_latin_name parents). Parent species are archived in CollectionObject.text3.hybrid_determinations.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No1",
+        "name": "Hybrid",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null
