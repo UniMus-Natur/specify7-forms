@@ -10,7 +10,7 @@
   </views>
   <viewdefs>
     <viewdef type="form" name="Collectors" class="edu.ku.brc.specify.datamodel.Collector" gettable="edu.ku.brc.af.ui.forms.DataGetterForObj" settable="edu.ku.brc.af.ui.forms.DataSetterForObj">
-      <desc>The Collectors form - UNKNOWN use in database.</desc>
+      <desc>Collectors for a collecting event (MUSIT Leg).</desc>
       <enableRules />
       <columnDef>p,5dlu,p:g,5dlu,p:g,5dlu,p</columnDef>
       <rowDef auto="true" cell="p" sep="2px" />
@@ -20,9 +20,11 @@
           <cell type="field" id="3" name="agent" uitype="querycbx" initialize="name=Agent" colspan="5" />
         </row>
         <row>
-          <cell type="label" labelfor="ip" />
-          <cell type="field" id="ip" name="isPrimary" uitype="checkbox" />
-          <cell type="label" labelfor="on" />
+          <cell type="label" label="Leg no" labelfor="ln" />
+          <cell type="field" id="ln" name="text1" uitype="text" />
+          <cell type="label" label="Scr" labelfor="scr" />
+          <cell type="field" id="scr" name="yesNo1" uitype="checkbox" />
+          <cell type="label" label="No #" labelfor="on" />
           <cell type="field" id="on" name="orderNumber" uitype="text" />
         </row>
         <row>

@@ -2077,9 +2077,9 @@
         "weblinkname": null
       },
       "fieldnumber": {
-        "desc": "Collector field number (MUSIT Leg Nr)",
+        "desc": "Legacy collector field number (unused for MUSIT botany; see Collector.text1).",
         "format": null,
-        "ishidden": false,
+        "ishidden": true,
         "isrequired": false,
         "isuiformatter": null,
         "name": "Leg no",
@@ -2752,7 +2752,7 @@
       "isprimary": {
         "desc": "Is Primary",
         "format": null,
-        "ishidden": false,
+        "ishidden": true,
         "isrequired": true,
         "isuiformatter": null,
         "name": "Is Primary",
@@ -2772,12 +2772,12 @@
         "weblinkname": null
       },
       "ordernumber": {
-        "desc": "The position in the list of collectors.",
+        "desc": "Display order from MUSIT sorting_sequence (No #).",
         "format": null,
         "ishidden": false,
         "isrequired": true,
         "isuiformatter": null,
-        "name": "Order Number",
+        "name": "No #",
         "picklistname": null,
         "type": "java.lang.Integer",
         "weblinkname": null
@@ -2794,12 +2794,12 @@
         "weblinkname": null
       },
       "text1": {
-        "desc": "Text1",
+        "desc": "Collector field number from MUSIT (Leg no; may include letters).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text1",
+        "name": "Leg no",
         "picklistname": null,
         "type": "text",
         "weblinkname": null
@@ -2849,12 +2849,12 @@
         "weblinkname": null
       },
       "yesno1": {
-        "desc": "Yes No1",
+        "desc": "Name inferred from handwriting (MUSIT LegScr / DetScr), not signed on the label.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Yes No1",
+        "name": "Scr",
         "picklistname": null,
         "type": "java.lang.Boolean",
         "weblinkname": null
@@ -2872,6 +2872,85 @@
       }
     },
     "name": "Collector",
+    "picklistname": null,
+    "type": null
+  },
+  "determiner": {
+    "aggregator": null,
+    "defaultui": null,
+    "desc": "Individual who assigned the taxonomic name on a determination (MUSIT Det).",
+    "format": null,
+    "ishidden": false,
+    "isuiformatter": null,
+    "items": {
+      "agent": {
+        "desc": "Agent",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Agent",
+        "picklistname": null,
+        "type": "ManyToOne",
+        "weblinkname": null
+      },
+      "determination": {
+        "desc": "Determination",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Determination",
+        "picklistname": null,
+        "type": "ManyToOne",
+        "weblinkname": null
+      },
+      "isprimary": {
+        "desc": "Is Primary",
+        "format": null,
+        "ishidden": true,
+        "isrequired": true,
+        "isuiformatter": null,
+        "name": "Is Primary",
+        "picklistname": null,
+        "type": "java.lang.Boolean",
+        "weblinkname": null
+      },
+      "ordernumber": {
+        "desc": "Display order from MUSIT sorting_sequence (No #).",
+        "format": null,
+        "ishidden": false,
+        "isrequired": true,
+        "isuiformatter": null,
+        "name": "No #",
+        "picklistname": null,
+        "type": "java.lang.Integer",
+        "weblinkname": null
+      },
+      "remarks": {
+        "desc": "Additional comments.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Remarks",
+        "picklistname": null,
+        "type": "text",
+        "weblinkname": null
+      },
+      "yesno1": {
+        "desc": "Name inferred from handwriting (MUSIT DetScr), not signed on the label.",
+        "format": null,
+        "ishidden": false,
+        "isrequired": false,
+        "isuiformatter": null,
+        "name": "Scr",
+        "picklistname": null,
+        "type": "java.lang.Boolean",
+        "weblinkname": null
+      }
+    },
+    "name": "Determiner",
     "picklistname": null,
     "type": null
   },

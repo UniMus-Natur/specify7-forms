@@ -31,16 +31,14 @@
           <cell type="field" id="1" name="catalogNumber" uitype="formattedtext" />
           <cell type="label" label="Object number" labelfor="onum" />
           <cell type="field" id="onum" name="integer1" uitype="text" />
-          <cell type="label" label="Leg no" labelfor="fn" />
-          <cell type="field" id="fn" name="fieldNumber" uitype="text" />
+          <cell type="label" labelfor="3" />
+          <cell type="field" id="3" name="accession" uitype="querycbx" initialize="name=AccessionCO;title=AccessionCO" isrequired="false" />
         </row>
         <row>
           <cell type="label" label="Sheets #" labelfor="ca" />
           <cell type="field" id="ca" name="countAmt" uitype="text" />
-          <cell type="label" labelfor="3" />
-          <cell type="field" id="3" name="accession" uitype="querycbx" initialize="name=AccessionCO;title=AccessionCO" isrequired="false" />
           <cell type="label" label="Artsobs no" labelfor="14" />
-          <cell type="field" id="14" name="altCatalogNumber" uitype="text" />
+          <cell type="field" id="14" name="altCatalogNumber" uitype="text" colspan="3" />
         </row>
         <row>
           <cell type="separator" label="Taxon" colspan="12" />
