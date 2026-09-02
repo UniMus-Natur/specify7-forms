@@ -1536,12 +1536,12 @@
         "weblinkname": null
       },
       "uniqueidentifier": {
-        "desc": "Unique Identifier",
+        "desc": "MUSIT OBJECT_ATTRIBUTES.UUID — stable cross-system identifier when assigned.",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Unique Identifier",
+        "name": "UUID",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
@@ -2330,7 +2330,7 @@
         "weblinkname": null
       },
       "remarks": {
-        "desc": "MUSIT administrative notes, audit trail, and UUID",
+        "desc": "MUSIT administrative notes and audit trail.",
         "format": null,
         "ishidden": false,
         "isrequired": false,
