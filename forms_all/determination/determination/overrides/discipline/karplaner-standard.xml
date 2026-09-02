@@ -53,8 +53,10 @@
           <cell type="field" id="dt_add" name="addendum" uitype="combobox" picklist="DeterminationAddendum" />
         </row>
         <row>
+          <cell type="label" label="Verbatim date" labelfor="vdet" />
+          <cell type="field" id="vdet" name="text6" uitype="text" />
           <cell type="label" labelfor="7" />
-          <cell type="field" id="7" uitype="plugin" name="this" initialize="name=PartialDateUI;df=determinedDate;tp=determinedDatePrecision" uifieldformatter="Date" colspan="9" />
+          <cell type="field" id="7" uitype="plugin" name="this" initialize="name=PartialDateUI;df=determinedDate;tp=determinedDatePrecision" uifieldformatter="Date" colspan="3" />
         </row>
         <row>
           <cell type="subview" id="determiners" name="determiners" viewname="Determiners" colspan="12" />

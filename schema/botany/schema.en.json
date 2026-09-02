@@ -3381,12 +3381,12 @@
         "weblinkname": null
       },
       "text6": {
-        "desc": "Text6",
+        "desc": "Date as written on the label (MUSIT TIMESPAN.time_as_text on the classification event).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Text6",
+        "name": "Verbatim date",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null
