@@ -2363,12 +2363,12 @@
         "weblinkname": null
       },
       "reservedtext": {
-        "desc": "Reserved Text",
+        "desc": "MUSIT OBJECT_ATTRIBUTES.UUID (may be shared by multiple catalog numbers; not enforced unique).",
         "format": null,
-        "ishidden": true,
+        "ishidden": false,
         "isrequired": false,
         "isuiformatter": null,
-        "name": "Reserved Text",
+        "name": "UUID",
         "picklistname": null,
         "type": "java.lang.String",
         "weblinkname": null

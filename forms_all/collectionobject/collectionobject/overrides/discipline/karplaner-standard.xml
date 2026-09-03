@@ -32,7 +32,7 @@
           <cell type="label" label="Object number" labelfor="onum" />
           <cell type="field" id="onum" name="integer1" uitype="text" />
           <cell type="label" label="UUID" labelfor="uuid" />
-          <cell type="field" id="uuid" name="uniqueIdentifier" uitype="text" />
+          <cell type="field" id="uuid" name="reservedText" uitype="text" />
         </row>
         <row>
           <cell type="label" labelfor="3" />
